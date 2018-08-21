@@ -15,29 +15,21 @@ puts "Creating 4 real businesses"
 Business.create({
   name: "Starbucks",
   address: " R. Voluntários da Pátria, 89 - Botafogo, Rio de Janeiro - RJ",
-  average_rating: [1, 2, 3, 4, 5].sample,
-  average_english_rating: [1, 2, 3, 4, 5].sample,
   photo: "https://picsum.photos/200/300/?random"
 })
 Business.create({
   name: "WeWork",
   address: "495 Visconde de Piraja Avenue, Rio de Janeiro - RJ",
-  average_rating: [1, 2, 3, 4, 5].sample,
-  average_english_rating: [1, 2, 3, 4, 5].sample,
   photo: "https://picsum.photos/200/300/?random"
 })
 Business.create({
   name: "Armazém do café",
   address: "R. Visc. de Pirajá, 261, Rio de Janeiro",
-  average_rating: [1, 2, 3, 4, 5].sample,
-  average_english_rating: [1, 2, 3, 4, 5].sample,
   photo: "https://picsum.photos/200/300/?random"
 })
 Business.create({
   name: "Kilograma",
   address: "R. Visc. de Pirajá, 644,  Ipanema, Rio de Janeiro - RJ",
-  average_rating: [1, 2, 3, 4, 5].sample,
-  average_english_rating: [1, 2, 3, 4, 5].sample,
   photo: "https://picsum.photos/200/300/?random"
 })
 
