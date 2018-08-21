@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2018_08_21_145406) do
   create_table "businesses", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.integer "average_english_rating"
-    t.integer "average_rating"
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
