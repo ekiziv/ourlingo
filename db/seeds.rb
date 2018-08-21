@@ -51,7 +51,7 @@ puts "Creating 10 unique reviews"
     description: Faker::GameOfThrones.quote,
     english_rating: [1, 2, 3, 4, 5].sample,
     rating: [1, 2, 3, 4, 5].sample,
-    user_id: [User.first.id, User.last.id].sample,
+    user_id: User.ids.sample,
     business_id: Business.ids.sample
   })
 end
