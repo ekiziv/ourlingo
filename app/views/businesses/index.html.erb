@@ -1,9 +1,12 @@
 <div class="row">
   <div class="col-sm-7">
-    <% @businesses.each do |business| %>
-      <%= business.name %>
-      <%= business.address %>
-    <% end %>
+    <ul>
+      <% @businesses.each do |business| %>
+        <li>
+          <%= link_to business.name, business_path(business) %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="col-sm-5">
@@ -16,7 +19,4 @@
     </div>
   </div>
 </div>
-
-
-
 
