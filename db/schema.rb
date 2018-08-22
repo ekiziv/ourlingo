@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_182248) do
     t.bigint "user_id"
     t.string "place_id"
     t.string "content"
-    t.integer "language_score"
+    t.integer "english_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
