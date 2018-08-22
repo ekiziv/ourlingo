@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-sm-7">
     <ul>
-      <% @businesses.each do |business| %>
+      <% @candidates.each do |candidate| %>
         <li>
-          <%= link_to business.name, business_path(business) %>
+          <%= candidate['name']%>
         </li>
       <% end %>
     </ul>

@@ -3,8 +3,8 @@
     <h1>lingo services</h1>
     <p>have confidence in your body language</p>
     <p><strong>search below to find English speaking businesses or to leave a review for a service you have used...</strong></p>
-    <%= form_tag("/search", method: "get") do %>
-    <%= text_field_tag(:input_address, "Ipanema") %>
+    <%= form_tag("/businesses", method: "get") do %>
+    <%= text_field_tag(:input_address) %>
     <%= submit_tag("find") %>
     <% end %>
   </div>

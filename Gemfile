@@ -17,7 +17,12 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+
 gem 'google_places'
+gem 'rest-client'
+gem 'json'
+gem 'http'
+gem 'httparty'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
