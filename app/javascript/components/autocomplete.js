@@ -3,7 +3,7 @@ function autocomplete() {
     var inputAddress = document.getElementById('input_address');
 
     if (inputAddress) {
-      var autocomplete = new google.maps.places.Autocomplete(inputAddress, { types: [ 'geocode' ] });
+      var autocomplete = new google.maps.places.SearchBox(inputAddress);
       google.maps.event.addDomListener(inputAddress, 'keydown', function(e) {
         if (e.key === "Enter") {
           e.preventDefault(); // Do not submit the form on Enter.
