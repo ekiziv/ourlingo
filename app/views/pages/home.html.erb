@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="banner-content text-center">
+    <h1>lingo services</h1>
+    <p>have confidence in your body language</p>
+    <%= form_tag("/search", method: "get") do %>
+
+      <%= label_tag(:q, "I'm looking for a ") %>
+      <%= text_field_tag(:q) %>
+
+      <%= label_tag(:q, "in ") %>
+      <%= text_field_tag(:q) %>
+
+      <%= submit_tag("find") %>
+    <% end %>
+  </div>
+</div>
