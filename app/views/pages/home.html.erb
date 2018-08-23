@@ -6,8 +6,14 @@
     <p>have confidence in your body language</p>
     <p><strong>search below to find English speaking businesses or to leave a review for a service you have used...</strong></p>
     <%= form_tag("/reviews", method: "get") do %>
-    <%= text_field_tag(:input_address) %>
-    <%= submit_tag("find") %>
+      <div class="form-row form-inline">
+      <%= text_field_tag :input_address,
+        params[:input_address],
+        class: "form-control",
+        placeholder: "search a business" %>
+      <%= submit_tag "find", class: "btn btn-primary" %>
+      </div>
     <% end %>
+
   </div>
 </div>

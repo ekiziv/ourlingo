@@ -1,14 +1,18 @@
 <h4>Here is what we found for you: </h4>
-
-<% @candidates.each do |candidate| %>
-  <ul>
-    <li>
-      <p> <%= link_to candidate["name"], review_path(candidate["place_id"]) %> at <%= candidate["formatted_address"] %> </p>
-      <% if candidate["photos"].present?  %>
-        <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=#{candidate["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
-      <% else %>
-        <%= image_tag "https://picsum.photos/800/600/?random" %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <% @candidates.each do |candidate| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= link_to review_path(candidate["place_id"]) do %>
+        <% if candidate["reviews"].present?  %>
+          <%= render "shared/yes", candidate: candidate %>
+        <% else  %>
+         <%= render "shared/no", candidate: candidate %>
+        <% end %>
       <% end %>
-    </li>
-  </ul>
-<% end %>
+    </div>
+    <% end %>
+  </div>
+
+  <%= render "shared/map" %>
+</div>
