@@ -4,21 +4,15 @@
     <% else %>
     <%= "https://picsum.photos/800/600/?random" %>
     <% end %>)">
-
-    <p class="card-tag">
-      <div class="review-stars">
-        <% Review.average(:english_rating).round.times do %>
-        <i class="fas fa-flag"></i>
-        <% end %>
-        <% (5-Review.average(:english_rating).round).times do %>
-        <i class="far fa-flag"></i>
-        <% end %>
-      </div>
-    </p>
+    <h5>No language review yet</h5>
   </div>
-
   <div class="card-footer">
     <h5><%= candidate["name"] %></h5>
-    <p class="card-address"><%= candidate["formatted_address"] %></p>
+    <p class="card-address"><%= candidate["formatted_address"].truncate(40) %></p>
   </div>
 </div>
+
+
+
+
+
