@@ -1,14 +1,42 @@
 <h4>Here is what we found for you: </h4>
 
-<% @candidates.each do |candidate| %>
-  <ul>
-    <li>
-      <p> <%= link_to candidate["name"], review_path(candidate["place_id"]) %> at <%= candidate["formatted_address"] %> </p>
-      <% if candidate["photos"].present?  %>
-        <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=#{candidate["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
-      <% else %>
-        <%= image_tag "https://picsum.photos/800/600/?random" %>
-      <% end %>
-    </li>
-  </ul>
-<% end %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <% @candidates.each do |candidate| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= link_to review_path(candidate["place_id"]) do %>
+      <%# if we have a review  %>
+      <div class="card">
+        <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url(<% if candidate["photos"].present? %>
+          <%= "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=#{candidate["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
+          <% else %>
+          <%= "https://picsum.photos/800/600/?random" %>
+          <% end %>)">
+          <!-- <p class="card-tag"> -->
+                  <!-- <div class="review-stars">
+                    <%# Review.average(:english_rating).round.times do %>
+                    <i class="fas fa-flag"></i>
+                    <%# end %>
+                    <%# (5-Review.average(:english_rating).round).times do %>
+                    <i class="far fa-flag"></i>
+                    <%# end %>
+                  </div> -->
+                  <!-- </p> -->
+                </div>
+
+                <div class="card-footer">
+                  <h5><%= candidate["name"] %></h5>
+                  <p class="card-address"><%= candidate["formatted_address"] %></p>
+                </div>
+              </div>
+
+              <%# else  %>
+              <%#= render "shared/no" %>
+              <%# end %>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+
+          <%= render "shared/map" %>
+        </div>
