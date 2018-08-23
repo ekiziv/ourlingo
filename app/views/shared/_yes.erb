@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url('<%= business.photo %>');">
+    <p class="card-tag">
+      <div class="review-stars">
+        <% Review.average(:english_rating).round.times do %>
+        <i class="fas fa-flag"></i>
+        <% end %>
+        <% (5-Review.average(:english_rating).round).times do %>
+        <i class="far fa-flag"></i>
+        <% end %>
+      </div>
+    </p>
+  </div>
+
+  <div class="card-footer">
+    <h5><%= business.name %></h5>
+    <p class="card-address"><%= business.address %></p>
+  </div>
+</div>
