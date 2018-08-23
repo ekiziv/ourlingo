@@ -7,7 +7,7 @@
       <% if candidate["photos"].present?  %>
         <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=#{candidate["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
       <% else %>
-        <%= image_tag "https://picsum.photos/800/600/?random" %>
+        <%= image_tag "https://picsum.photos/200/300/?random" %>
       <% end %>
     </li>
   </ul>
