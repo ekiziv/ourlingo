@@ -8,6 +8,16 @@
   <%= image_tag "https://picsum.photos/760/600/?random" %>
 <% end %>
 
-
-
-
+<h5> Please, review here </h5>
+<div id="reviews">
+  <% if @reviews.blank? %>
+    Be the first to leave a review for @result.name %>
+  <% else %>
+    <% @reviews.each do |review| %>
+      <% @review = review %>
+      <%= render partial: 'review', locals: { review: @review } %>
+    <% end %>
+  <% end %>
+</div>
+<% @review = Review.new(place_id: @place_id) %>
+<%= render 'form', review: @review %>
