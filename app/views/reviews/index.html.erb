@@ -1,1 +1,14 @@
-<h1>Index</h1>
+<h4>Here is what we found for you: </h4>
+
+<% @candidates.each do |candidate| %>
+  <ul>
+    <li>
+      <p> <%= link_to candidate["name"], review_path(candidate["place_id"]) %> at <%= candidate["formatted_address"] %> </p>
+      <% if candidate["photos"].present?  %>
+        <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=#{candidate["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
+      <% else %>
+        <%= image_tag "https://picsum.photos/800/600/?random" %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
