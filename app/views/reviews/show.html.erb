@@ -40,6 +40,14 @@
     </div>
     <div class="col-xs-12 col-sm-6 info">
       <h4>Review</h4>
+      <% if @result["reviews"].present? %>
+        <h5>Show Reviews</h5>
+        <% @result["reviews"].each do |review| %>
+          <p><%= review %></p>
+        <% end %>
+      <% else %>
+        <h5>No language review yet.</h5>
+      <% end %>
     </div>
   </div>
 </div>
