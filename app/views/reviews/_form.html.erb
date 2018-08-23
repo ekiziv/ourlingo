@@ -1,0 +1,6 @@
+<%= simple_form_for([review], remote: true) do |f| %>
+  <%= f.input :place_id, as: :hidden, input_html: { :value => @place_id } %>
+  <%= f.input :content %>
+  <%= f.input :english_rating %>
+  <%= f.submit "add a review", class: "btn btn-primary" %>
+<% end %>

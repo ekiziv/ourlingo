@@ -2,6 +2,22 @@
 <h5><%= @result["formatted_address"] %></h5>
 <h5><%= @result["formatted_phone_number"] %></h5>
 <h5><%= @result["rating"] %></h5>
-<%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=760&photoreference=#{@result["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
+<% if @result["photos"].present? %>
+  <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=760&photoreference=#{@result["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
+<% else %>
+  <%= image_tag "https://picsum.photos/760/600/?random" %>
+<% end %>
 
-
+<h5> Please, review here </h5>
+<div id="reviews">
+  <% if @reviews.blank? %>
+    Be the first to leave a review for @result.name %>
+  <% else %>
+    <% @reviews.each do |review| %>
+      <% @review = review %>
+      <%= render partial: 'review', locals: { review: @review } %>
+    <% end %>
+  <% end %>
+</div>
+<% @review = Review.new(place_id: @place_id) %>
+<%= render 'form', review: @review %>
