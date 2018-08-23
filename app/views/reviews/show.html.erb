@@ -1,7 +1,9 @@
-<h5><%= @result["name"] %></h5>
-<h5><%= @result["formatted_address"] %></h5>
-<h5><%= @result["formatted_phone_number"] %></h5>
-<h5><%= @result["rating"] %></h5>
-<%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=760&photoreference=#{@result["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
+<div class="container">
 
+  <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=760&photoreference=#{@result["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}", class:"half-banner" %>
 
+  <h5><%= @result["name"] %></h5>
+  <h5><%= @result["formatted_address"] %></h5>
+  <h5><%= @result["formatted_phone_number"] %></h5>
+  <h5><%= @result["rating"] %></h5>
+</div>
