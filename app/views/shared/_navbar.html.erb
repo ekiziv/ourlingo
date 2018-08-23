@@ -8,27 +8,30 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <div class="<%= yield(:navbar_class)=="navbar-home" ? "hidden" : "search" %>">
-      <%= form_tag("/reviews", method: "get") do %>
-        <div class="form-row form-inline">
-          <%= text_field_tag :input_address,
-          params[:input_address],
-          class: "form-control",
-          placeholder: "search a business" %>
-          <%= submit_tag "find", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </div>
+    <% if !current_page?(controller: 'pages', action: 'home') %>
+      <div class="search">
+        <%= form_tag("/reviews", method: "get") do %>
+          <div class="form-row form-inline">
+            <%= text_field_tag :input_address,
+            params[:input_address],
+            class: "form-control",
+            placeholder: "search for a business" %>
+            <%= submit_tag "find", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Leave Review", new_review_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Leave Review", new_review_path, class: "navbar-wagon-item navbar-text review" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <span>Logged in as: </span> <%= current_user.username %>
+          <p class="navbar-text">Logged in as: </p>
+          <p class="navbar-text dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"><%= current_user.username %></p>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
