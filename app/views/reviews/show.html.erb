@@ -2,8 +2,41 @@
 
   <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=760&photoreference=#{@result["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}", class:"half-banner" %>
 
-  <h5><%= @result["name"] %></h5>
-  <h5><%= @result["formatted_address"] %></h5>
-  <h5><%= @result["formatted_phone_number"] %></h5>
-  <h5><%= @result["rating"] %></h5>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 info">
+      <h4><%= @result["name"] %></h4>
+      <p><%= @result["formatted_address"] %></p>
+      <h5><%= @result["formatted_phone_number"] %></h5>
+      <div class="reviews">
+        <h5 class="google-review">
+          Google review:
+          <%= @result["rating"] %>
+          <% @result["rating"].round.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5-@result["rating"].round).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        </h5>
+
+        <h5 class="language-review">
+          Language review:
+          <div class="review-stars">
+            <% Review.average(:english_rating).round.times do %>
+              <i class="fas fa-flag"></i>
+            <% end %>
+            <% (5-Review.average(:english_rating).round).times do %>
+              <i class="far fa-flag"></i>
+            <% end %>
+          </div>
+        </h5>
+
+      </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-6 info">
+      <h4>Review</h4>
+
+    </div>
+  </div>
 </div>

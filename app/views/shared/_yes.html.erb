@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url(
+    <% if candidate["photos"].present? %>
+      <%= "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=#{candidate["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
+    <% else %>
+      <%= "https://picsum.photos/800/600/?random" %>
+    <% end %>
+  )">
+
+    <p class="card-tag">
+      <div class="review-stars">
+        <% Review.average(:english_rating).round.times do %>
+          <i class="fas fa-flag"></i>
+        <% end %>
+        <% (5-Review.average(:english_rating).round).times do %>
+          <i class="far fa-flag"></i>
+        <% end %>
+      </div>
+    </p>
+  </div>
+
+  <div class="card-footer">
+    <h5><%= candidate["name"] %></h5>
+    <p class="card-address"><%= candidate["formatted_address"].truncate(40) %></p>
+  </div>
+</div>
