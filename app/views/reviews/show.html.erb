@@ -21,14 +21,18 @@
 
         <h5 class="language-review">
           Language review:
-          <div class="review-stars">
+          <% if @result["reviews"].present? %>
             <% Review.average(:english_rating).round.times do %>
               <i class="fas fa-flag"></i>
             <% end %>
             <% (5-Review.average(:english_rating).round).times do %>
               <i class="far fa-flag"></i>
             <% end %>
-          </div>
+          <% else %>
+            <% 5.times do %>
+              <i class="far fa-flag"></i>
+              <% end %>
+          <% end %>
         </h5>
 
       </div>
@@ -36,7 +40,6 @@
     </div>
     <div class="col-xs-12 col-sm-6 info">
       <h4>Review</h4>
-
     </div>
   </div>
 </div>
