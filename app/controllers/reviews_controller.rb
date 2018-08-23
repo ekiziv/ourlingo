@@ -6,6 +6,12 @@ class ReviewsController < ApplicationController
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json?input=#{formatted_query}&inputtype=textquery&fields=photos,formatted_address,name,rating&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     places = HTTParty.get(url)
     @candidates = places["results"]
+    @markers = @candidates.map do |candidate|
+      {
+        lat: candidate['geometry']['location']['lat'],
+        lng: candidate['geometry']['location']['lng']
+      }
+    end
   end
 
   def show
