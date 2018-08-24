@@ -1,23 +1,63 @@
-<h5><%= @result["name"] %></h5>
-<h5><%= @result["formatted_address"] %></h5>
-<h5><%= @result["formatted_phone_number"] %></h5>
-<h5><%= @result["rating"] %></h5>
-<% if @result["photos"].present? %>
-  <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=760&photoreference=#{@result["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
-<% else %>
-  <%= image_tag "https://picsum.photos/760/600/?random" %>
-<% end %>
-
-<h5> Please, review here </h5>
-<div id="reviews">
-  <% if @reviews.blank? %>
-    <p>Be the first to leave a review for <%= @result.name %></p>
+<div class="container">
+  <% if @result["photos"][0].present? %>
+    <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=760&photoreference=#{@result["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}", class:"half-banner" %>
   <% else %>
-    <% @reviews.each do |review| %>
-      <% @review = review %>
-      <%= render partial: 'review', locals: { review: @review } %>
-    <% end %>
+    <%= "https://picsum.photos/800/600/?random" %>
   <% end %>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 info">
+      <h4><%= @result["name"] %></h4>
+      <p><%= @result["formatted_address"] %></p>
+      <h5><%= @result["formatted_phone_number"] %></h5>
+      <div class="reviews">
+        <h5 class="google-review">
+          Google review:&nbsp;
+          <% @result["rating"].round.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5-@result["rating"].round).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+
+          &nbsp;(<%= @result["rating"] %>)
+        </h5>
+
+        <h5 class="language-review">
+          Language review:&nbsp;
+          <% if @result["reviews"].present? %>
+            <% Review.average(:english_rating).round.times do %>
+              <i class="fas fa-flag"></i>
+            <% end %>
+            <% (5-Review.average(:english_rating).round).times do %>
+              <i class="far fa-flag"></i>
+            <% end %>
+          <% else %>
+            <% 5.times do %>
+              <i class="far fa-flag"></i>
+            <% end %>
+          <% end %>
+        </h5>
+      </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-6 info">
+      <h4>Review</h4>
+      <p>Please, review for <%= @result["name"] %></p>
+      <div id="reviews">
+        <% if @reviews.blank? %>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <% @review = review %>
+            <%= render partial: 'review', locals: { review: @review } %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <% @review = Review.new(place_id: @place_id) %>
+      <%= render 'form', review: @review %>
+
+    </div>
+  </div>
 </div>
-<% @review = Review.new(place_id: @place_id) %>
-<%= render 'form', review: @review %>
+
