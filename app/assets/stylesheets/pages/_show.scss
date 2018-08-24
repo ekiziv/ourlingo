@@ -1,8 +1,19 @@
+body {
+  background-color: #FDF6FA;
+  color: gray;
+} p {
+  font-size: 15px;
+}
+
 .wrapper {
   max-width: 760px;
   margin: 0 auto;
 }
 
-body {
-  color: $forest-green;
+.info {
+  padding: 20px 40px;
+}
+
+.google-review {
+  display: inline;
 }
