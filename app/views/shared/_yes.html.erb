@@ -7,11 +7,12 @@
     <% end %>
     )">
     <p class="card-tag">
+      <% @average = reviews.pluck(:english_rating).sum / reviews.count %>
       <div class="review-stars">
-        <% Review.average(:english_rating).round.times do %>
+        <% @average.round.times do %>
           <i class="fas fa-flag"></i>
         <% end %>
-        <% (5-Review.average(:english_rating).round).times do %>
+        <% (5-@average.round).times do %>
           <i class="far fa-flag"></i>
         <% end %>
       </div>
