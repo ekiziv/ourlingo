@@ -5,9 +5,9 @@
     <div class="col-xs-12 col-sm-6 col-md-4">
       <%= link_to review_path(candidate["place_id"]) do %>
       <% if reviews.present?  %>
-      <%= render "shared/yes", candidate: candidate, reviews: reviews %>
+        <%= render "shared/yes", candidate: candidate, reviews: reviews %>
       <% else  %>
-      <%= render "shared/no", candidate: candidate %>
+        <%= render "shared/no", candidate: candidate %>
       <% end %>
       <% end %>
     </div>
