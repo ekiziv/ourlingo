@@ -1,19 +1,19 @@
 <%= content_for(:navbar_class, "navbar-home") %>
 
 <div class="banner">
+  <div class="container">
   <div class="banner-content text-center">
     <h1>lingo services</h1>
     <p>have confidence in your body language</p>
-    <p><strong>search below to find English speaking businesses or to leave a review for a service you have used...</strong></p>
     <%= form_tag("/reviews", method: "get") do %>
       <div class="form-row form-inline">
       <%= text_field_tag :input_address,
         params[:input_address],
-        class: "form-control",
+        class: "form-control main-search",
         placeholder: "search a business" %>
       <%= submit_tag "find", class: "btn btn-primary" %>
       </div>
     <% end %>
-
+    </div>
   </div>
 </div>

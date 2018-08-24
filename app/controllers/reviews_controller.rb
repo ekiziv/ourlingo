@@ -11,12 +11,17 @@ class ReviewsController < ApplicationController
     # url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?#{location_helper}&radius=5500&keyword=#{formatted_query}&fields=photos,formatted_address,name,rating&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     places = HTTParty.get(url)
     @candidates = places["results"]
-    @markers = @candidates.map do |candidate|
+    @places = places["results"].map do |place|
+      OpenStruct.new(place)
+    end
+
+    @markers = @places.map do |place|
       {
-        lat: candidate['geometry']['location']['lat'],
-        lng: candidate['geometry']['location']['lng']
+        lat: place.geometry['location']['lat'],
+        lng: place.geometry['location']['lng']
       }
     end
+    @reviews = Review.all
   end
 
   def show
@@ -26,6 +31,7 @@ class ReviewsController < ApplicationController
     @result = place_info["result"]
 
     @reviews = Review.where(place_id: @place_id).find_each
+    @reviews.pluck(:english_rating) # sum / count
   end
 
   def create
