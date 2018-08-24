@@ -3,7 +3,7 @@
 <h5><%= @result["formatted_phone_number"] %></h5>
 <h5><%= @result["rating"] %></h5>
 <% if @result["photos"].present? %>
-  <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=760&photoreference=#{@result["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
+  <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=760&photoreference=#{@result["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
 <% else %>
   <%= image_tag "https://picsum.photos/760/600/?random" %>
 <% end %>
@@ -11,7 +11,7 @@
 <h5> Please, review here </h5>
 <div id="reviews">
   <% if @reviews.blank? %>
-    Be the first to leave a review for @result.name %>
+    <p>Be the first to leave a review for <%= @result.name %></p>
   <% else %>
     <% @reviews.each do |review| %>
       <% @review = review %>

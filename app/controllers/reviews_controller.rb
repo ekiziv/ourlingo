@@ -1,9 +1,14 @@
 require 'uri'
 class ReviewsController < ApplicationController
   def index
+    # ip_data = HTTParty.get("http://ip-api.com/json")
+    # lat = ip_data["lat"]
+    # lon = ip_data["lon"]
     query = params[:input_address]
     formatted_query = URI.encode(query)
-    url = "https://maps.googleapis.com/maps/api/place/textsearch/json?input=#{formatted_query}&inputtype=textquery&fields=photos,formatted_address,name,rating&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    # location_helper = "location=#{lat},#{lon}"
+    url = "https://maps.googleapis.com/maps/api/place/textsearch/json?input=#{formatted_query}&inputtype=textquery&fields=photos,formatted_address,name,rating&key=#{ENV['GOOGLE_API_BROWSER_KEY']}"
+    # url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?#{location_helper}&radius=5500&keyword=#{formatted_query}&fields=photos,formatted_address,name,rating&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     places = HTTParty.get(url)
     @candidates = places["results"]
     @markers = @candidates.map do |candidate|
@@ -16,7 +21,7 @@ class ReviewsController < ApplicationController
 
   def show
     @place_id = params[:id]
-    url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{@place_id}&fields=formatted_address,name,photos,rating,formatted_phone_number&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{@place_id}&fields=formatted_address,name,photos,rating,formatted_phone_number&key=#{ENV['GOOGLE_API_BROWSER_KEY']}"
     place_info = HTTParty.get(url)
     @result = place_info["result"]
 
