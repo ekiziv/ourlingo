@@ -3,16 +3,13 @@
 <div class="banner">
   <div class="banner-content text-center">
     <h1>lingo services</h1>
-    <p>have confidence in your body language</p>
-    <p><strong>search below to find English speaking businesses or to leave a review for a service you have used...</strong></p>
+    <p>find services in your native language</p>
     <%= form_tag("/reviews", method: "get") do %>
-      <div class="form-row form-inline">
       <%= text_field_tag :input_address,
         params[:input_address],
-        class: "form-control",
-        placeholder: "search a business" %>
+        class: "form-control text-center",
+        placeholder: "What service are you looking for today?" %>
       <%= submit_tag "find", class: "btn btn-primary" %>
-      </div>
     <% end %>
 
   </div>
