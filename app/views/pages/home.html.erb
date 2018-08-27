@@ -8,9 +8,9 @@
     <%= form_tag("/reviews", method: "get") do %>
       <%= text_field_tag :input_address,
         params[:input_address],
-        class: "form-control text-center",
-        placeholder: "What service are you looking for today?" %>
-      <%= submit_tag "find", class: "btn btn-primary" %>
+        class: "form-control text-center main-search",
+        placeholder: "What service are you looking for?" %>
+      <%= submit_tag "find", class: "btn btn-primary", id: "search_button" %>
     <% end %>
     </div>
   </div>

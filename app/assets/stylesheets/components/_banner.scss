@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: linear-gradient(rgba(250,250,250,0.4), rgba(255,255,255,0.8)), image-url("background1.jpg");
+  background-image: radial-gradient(rgba(252,252,252,0.85), rgba(255,255,255,0.35)), image-url("background1.jpg");
   background-size: cover;
   background-position: center;
   h1 {
@@ -23,6 +23,28 @@
     padding: 8px 40px;
   }
 }
-.main-search {
-  width: 100%;
+#input_address {
+  display: inline;
+  width: fit-content;
+  vertical-align: middle;
+  height: 60px;
+  width: 45%;
+}
+
+#search_button {
+  display: inline;
+  width: fit-content;
+  vertical-align: middle;
+  height: 60px;
+}
+
+@media screen and (max-width: 600px) {
+  #input_address {
+    font-size: 14px;
+    width: 70%;
+    padding: 8px 8px;
+  }
+  #search_button {
+    width: 70%;
+  }
 }
