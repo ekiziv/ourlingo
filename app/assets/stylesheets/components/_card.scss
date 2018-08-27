@@ -6,6 +6,7 @@ body{
   display: flex;
   align-items: bottom;
   justify-content: space-around;
+    text-align: center;
 }
 
 .card-padding{
@@ -22,6 +23,8 @@ body{
   background-repeat: no-repeat;
   height: 180px;
   position: relative;
+
+
 }
 
 .card-tag {
@@ -82,3 +85,10 @@ a, a:hover {
   opacity: 0.7;
 }
 
+.no-text{
+  color: white;
+  text-align: center;
+  position: relative;
+  text-align: center;
+  padding: 75px 0 0 0;
+}

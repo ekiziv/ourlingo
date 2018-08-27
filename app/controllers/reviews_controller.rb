@@ -1,9 +1,14 @@
 require 'uri'
 class ReviewsController < ApplicationController
   def index
+    # ip_data = HTTParty.get("http://ip-api.com/json")
+    # lat = ip_data["lat"]
+    # lon = ip_data["lon"]
     query = params[:input_address]
     formatted_query = URI.encode(query)
+    # location_helper = "location=#{lat},#{lon}"
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json?input=#{formatted_query}&inputtype=textquery&fields=photos,formatted_address,name,rating&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    # url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?#{location_helper}&radius=5500&keyword=#{formatted_query}&fields=photos,formatted_address,name,rating&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     places = HTTParty.get(url)
     @candidates = places["results"]
     @places = places["results"].map do |place|
