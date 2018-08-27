@@ -19,7 +19,7 @@ function ipLookUp () {
   );
 }
 
-const form_element = document.getElementById("search_form");
+const form_element = document.getElementById("search_place");
 if (form_element != null) {
   console.log("hello");
   form_element.addEventListener("submit", (event) => {
