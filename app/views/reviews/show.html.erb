@@ -11,35 +11,23 @@
       <p><%= @result["formatted_address"] %></p>
       <h5><%= @result["formatted_phone_number"] %></h5>
       <div class="reviews">
-        <h5 class="google-review">
-          Google review:&nbsp;
-          <% @result["rating"].round.times do %>
-            <i class="fas fa-star"></i>
-          <% end %>
-          <% (5-@result["rating"].round).times do %>
-            <i class="far fa-star"></i>
+        <% if @result["rating"] != nil %>
+          <h5 class="google-review">
+            Google review:&nbsp;
+            <% @result["rating"].round.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5-@result["rating"].round).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+
+            &nbsp;(<%= @result["rating"] %>)
+          </h5>
           <% end %>
 
-          &nbsp;(<%= @result["rating"] %>)
-        </h5>
 
-        <h5 class="language-review">
-          Language review:&nbsp;
-          <% average = @reviews.pluck(:english_rating).sum / @reviews.count.to_f %>
-          <% if @reviews.present? %>
-            <% average.round.times do %>
-              <i class="fas fa-flag"></i>
-            <% end %>
-            <% (5-average.round).times do %>
-              <i class="far fa-flag"></i>
-            <% end %>
-          <% else %>
-            <% 5.times do %>
-              <i class="far fa-flag"></i>
-            <% end %>
-          <% end %>
-            &nbsp;(<%= average.round(1) %>)
-        </h5>
+          <%= render 'average', reviews: @reviews %>
+
       </div>
 
     </div>
@@ -57,7 +45,7 @@
       </div>
 
       <% @review = Review.new(place_id: @place_id) %>
-      <%= render 'form', review: @review %>
+      <%= render 'form', review: @review, reviews: @reviews %>
 
     </div>
   </div>

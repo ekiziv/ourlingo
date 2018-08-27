@@ -1,0 +1,18 @@
+        <h5 class="language-review" id="average">
+          Language review:&nbsp;
+          <% average = reviews.pluck(:english_rating).sum / reviews.count.to_f %>
+          <% if reviews.pluck(:english_rating).present? %>
+            <% average.round.times do %>
+              <i class="fas fa-flag"></i>
+            <% end %>
+            <% (5-average.round).times do %>
+              <i class="far fa-flag"></i>
+            <% end %>
+            &nbsp;(<%= average.round(1) %>)
+          <% else %>
+            <% 5.times do %>
+              <i class="far fa-flag"></i>
+            <% end %>
+            &nbsp;(No reviews yet...)
+          <% end %>
+        </h5>
