@@ -1,6 +1,6 @@
 <div class="main-container">
   <div class="col-xs-12 col-sm-6 col-md-8">
-    <% @candidates.each do |candidate| %>
+    <% @places.each do |candidate| %>
     <% reviews = Review.where(place_id: candidate['place_id']) %>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <%= link_to review_path(candidate["place_id"]) do %>
