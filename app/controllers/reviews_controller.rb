@@ -62,8 +62,8 @@ class ReviewsController < ApplicationController
         reviewed << place
       end
     end
-    reviewed = reviewed.sort_by! { |reviewed_place| Review.find_by(place_id: reviewed_place.place_id).english_rating*(-1) }
-    return reviewed + non_reviewed
+    reviewed = reviewed.sort_by! { |reviewed_place| Review.find_by(place_id: reviewed_place.place_id).english_rating }
+    return reviewed.reverse! + non_reviewed
   end
 
 
