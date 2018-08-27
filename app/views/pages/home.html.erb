@@ -5,7 +5,7 @@
   <div class="banner-content text-center">
     <h1>lingo services</h1>
     <p>find services in your native language</p>
-    <%= form_tag("/reviews", method: "get") do %>
+    <%= form_tag("/reviews", method: "get", id: "search_place") do %>
       <%= text_field_tag :input_address,
         params[:input_address],
         class: "form-control text-center",
