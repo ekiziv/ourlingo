@@ -51,6 +51,23 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:content, :place_id, :english_rating)
   end
 
+  def sort_places(places)
+    reviewed = []
+    non_reviewed = []
+    places.each do |place|
+      review = Review.find_by(place_id: place.place_id)
+      if review.nil?
+        non_reviewed << place
+      else
+        reviewed << place
+      end
+    end
+    reviewed = reviewed.sort_by! { |reviewed_place| Review.find_by(place_id: reviewed_place.place_id).english_rating*(-1) }
+    return reviewed + non_reviewed
+  end
+
+
+
   def lookup(user_lat, user_lng, query)
     formatted_query = URI.encode(query)
     location_helper = "location=#{user_lat},#{user_lng}"
@@ -59,7 +76,7 @@ class ReviewsController < ApplicationController
     @places = places["results"].map do |place|
       OpenStruct.new(place)
     end
-    return @places
+    return sort_places(@places)
   end
 
 end
