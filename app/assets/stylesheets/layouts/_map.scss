@@ -1,14 +1,30 @@
-.main-container {
+.flex-box {
   display: flex;
 }
 
+.results {
+  flex: 0 0 20%;
+}
+
+.index-map {
+  flex: 0 0 80%;
+}
+
 #map {
-  flex: 0 0 450px;
   height: 100vh;
   position: sticky !important;
   top: 0 !important;
 }
 
-.padding {
+.padding-right-none {
   padding-right: 0;
+}
+
+
+.small-padding {
+  padding: 15px;
+}
+
+.tiny-padding-right {
+  padding-right: 10px;
 }
