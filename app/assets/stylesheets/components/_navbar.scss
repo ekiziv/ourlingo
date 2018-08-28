@@ -20,18 +20,6 @@
     font-weight: bold;
   }
 }
-.review {
-  transition:all 0.3s ease;
-}
-
-.review:hover {
-  transform: scale(1.05);
-  text-decoration: none;
-  color: $forest-green;
-}
-.search {
-
-}
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
