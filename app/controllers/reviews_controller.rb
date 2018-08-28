@@ -1,19 +1,11 @@
 require 'uri'
 class ReviewsController < ApplicationController
   def index
-    # ip_data = HTTParty.get("http://ip-api.com/json")
-    # lat = ip_data["lat"]
-    # lon = ip_data["lon"]
+    @user_lat = params[:search_lat]
+    @user_lng = params[:search_lng]
     query = params[:input_address]
-    formatted_query = URI.encode(query)
-    # location_helper = "location=#{lat},#{lon}"
-    url = "https://maps.googleapis.com/maps/api/place/textsearch/json?input=#{formatted_query}&inputtype=textquery&fields=photos,formatted_address,name,rating&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
-    # url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?#{location_helper}&radius=5500&keyword=#{formatted_query}&fields=photos,formatted_address,name,rating&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
-    places = HTTParty.get(url)
-    @candidates = places["results"]
-    @places = places["results"].map do |place|
-      OpenStruct.new(place)
-    end
+
+    @places = lookup(@user_lat, @user_lng, query)
 
     @markers = @places.map do |place|
       {
@@ -21,7 +13,6 @@ class ReviewsController < ApplicationController
         lng: place.geometry['location']['lng']
       }
     end
-    @reviews = Review.all
   end
 
   def show
@@ -58,6 +49,34 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:content, :place_id, :english_rating)
+  end
+
+  def sort_places(places)
+    reviewed = []
+    non_reviewed = []
+    places.each do |place|
+      review = Review.find_by(place_id: place.place_id)
+      if review.nil?
+        non_reviewed << place
+      else
+        reviewed << place
+      end
+    end
+    reviewed = reviewed.sort_by! { |reviewed_place| Review.find_by(place_id: reviewed_place.place_id).english_rating }
+    return reviewed.reverse! + non_reviewed
+  end
+
+
+
+  def lookup(user_lat, user_lng, query)
+    formatted_query = URI.encode(query)
+    location_helper = "location=#{user_lat},#{user_lng}"
+    url = "https://maps.googleapis.com/maps/api/place/textsearch/json?#{location_helper}&input=#{formatted_query}&inputtype=textquery&fields=photos,formatted_address,name,rating&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    places = HTTParty.get(url)
+    @places = places["results"].map do |place|
+      OpenStruct.new(place)
+    end
+    return sort_places(@places)
   end
 
 end
