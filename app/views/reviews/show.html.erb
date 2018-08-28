@@ -1,11 +1,10 @@
 <div class="container">
-<<<<<<< HEAD
   <div class="wrapper">
     <div class="row">
       <div class="col-xs-12 col-sm-6 info">
         <h4><%= @name %></h4>
-        <p><i class="fas fa-map-pin"></i>  <%= @formatted_address %></p>
-        <p><%= @formatted_phone_number %></p>
+        <p><%= @formatted_address %></p>
+        <h5><%= @formatted_phone_number %></h5>
         <div class="reviews">
           <h5 class="google-review">
             Google review:&nbsp;
@@ -16,12 +15,7 @@
               <i class="far fa-star"></i>
             <% end %>
             &nbsp;(<%= @rating %>)
-          <% else %>
-            <% 5.times do %>
-              <i class="far fa-star"></i>
-            <% end %>
-          <% end %>
-        </h5>
+          </h5>
           <div id="average">
             <%= render 'average', reviews: @reviews %>
           </div>
