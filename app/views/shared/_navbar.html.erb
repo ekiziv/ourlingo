@@ -1,6 +1,15 @@
 <div class="navbar-wagon">
   <div class="search navbar-wagon-item">
-    <i class="fas fa-search medium-icon"></i>
+    <%= form_tag("/reviews", method: "get", id: "search_place") do %>
+      <div class="form-row form-inline navbar-searchbox">
+        <%= text_field_tag :input_address,
+            params[:input_address],
+            class: "form-control",
+            placeholder: "Search for a service"%>
+        <%= hidden_field_tag :search_lat, '-22.9866074' %>
+        <%= hidden_field_tag :search_lng, '-43.2173538'%>
+      </div>
+    <% end %>
   </div>
   <!-- Logo -->
   <%= link_to root_path do %>
@@ -12,7 +21,7 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <p class="navbar-text dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">  <i class="fa fa-user medium-icon"></i>
+          <p class="navbar-text dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">  <i class="fa fa-user medium-icon face"></i>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -33,17 +42,23 @@
     <% end %>
   </div>
 </div>
-<!--
-<%= form_tag("/reviews", method: "get", id: "search_place") do %>
-  <div class="form-row form-inline">
-    <%= text_field_tag :input_address,
-        params[:input_address],
-        class: "form-control",
-        placeholder: "search for a business" %>
-    <%= hidden_field_tag :search_lat, '-22.9866074' %>
-    <%= hidden_field_tag :search_lng, '-43.2173538'%>
-    <%= submit_tag "find", class: "btn btn-primary" %>
-  </div>
-<% end %>
- -->
 
+<!-- <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchbox" aria-hidden="true">
+  <div class="modal-dialog" role="search">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= form_tag("/reviews", method: "get", id: "search_place") do %>
+          <div class="form-group form-row form-inline">
+            <%= text_field_tag :input_address,
+                params[:input_address],
+                class: "form-control",
+                placeholder: "Search for a service" %>
+            <%= hidden_field_tag :search_lat, '-22.9866074' %>
+            <%= hidden_field_tag :search_lng, '-43.2173538'%>
+            <%= submit_tag "Find", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div> -->

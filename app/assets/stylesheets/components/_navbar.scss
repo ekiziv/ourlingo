@@ -33,6 +33,7 @@
 .logo {
   font-weight: lighter;
   padding-bottom: 15px;
+  position: center;
 }
 
 /* User Avatar */
@@ -53,6 +54,8 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  width: 400px;
+  position: relative;
 }
 
 /* Navbar link */
@@ -103,4 +106,14 @@
 
 .medium-icon {
   font-size: 28px;
+}
+
+.navbar-searchbox {
+  margin: 0;
+}
+
+.face {
+  position: absolute;
+  right: 30px;
+  top: 0px;
 }
