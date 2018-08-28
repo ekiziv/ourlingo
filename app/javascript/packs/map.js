@@ -22,7 +22,7 @@ if (mapElement) {
         console.log(card);
         cardParent.classList.add('highlighted');
         setTimeout(() => {cardParent.classList.remove('highlighted')}, 1000);
-        // cardParent.classList.add('scrollTop').offset().top}, 1000
+        window.smoothScrollTo(cardParent)
       }
     )
   })
