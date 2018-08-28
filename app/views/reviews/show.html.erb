@@ -20,18 +20,15 @@
             <% (5-@result["rating"].round).times do %>
               <i class="far fa-star"></i>
             <% end %>
-
             &nbsp;(<%= @result["rating"] %>)
           </h5>
         <% end %>
-
         <div id="average">
           <%= render 'average', reviews: @reviews %>
         </div>
-
       </div>
-
     </div>
+
     <div class="col-xs-12 col-sm-6 info">
       <h4>Review</h4>
       <p>Please, review for <%= @result["name"] %></p>
@@ -46,7 +43,7 @@
       </div>
 
       <% @review = Review.new(place_id: @place_id) %>
-      <%= render 'form', review: @review, reviews: @reviews %>
+      <%= render 'form', review: @review %>
 
     </div>
   </div>
