@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @user_lng = params[:search_lng]
     query = params[:input_address]
 
-    @places = lookup(@user_lat, @user_lng, query)
+    @places = sort_places(lookup(@user_lat, @user_lng, query))
 
     @markers = @places.map do |place|
       {
@@ -22,12 +22,12 @@ class ReviewsController < ApplicationController
     @result = place_info["result"]
 
     @reviews = Review.where(place_id: @place_id).find_each
-    @reviews.pluck(:english_rating) # sum / count
   end
 
   def create
     @review = Review.new(review_params)
     @place_id = @review.place_id
+    @reviews = Review.where(place_id: @place_id).find_each
     @review.user = current_user
     if @review.save
       respond_to do |format|
@@ -76,7 +76,7 @@ class ReviewsController < ApplicationController
     @places = places["results"].map do |place|
       OpenStruct.new(place)
     end
-    return sort_places(@places)
+    return @places
   end
 
 end

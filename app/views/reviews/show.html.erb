@@ -26,7 +26,6 @@
             <% end %>
           <% end %>
         </h5>
-
         <h5 class="language-review">
           Language review:&nbsp;
           <% if @result["reviews"].present? %>
@@ -36,15 +35,18 @@
             <% (5-Review.average(:english_rating).round).times do %>
               <i class="far fa-flag"></i>
             <% end %>
-          <% else %>
-            <% 5.times do %>
-              <i class="far fa-flag"></i>
+            <% (5-@result["rating"].round).times do %>
+              <i class="far fa-star"></i>
             <% end %>
-          <% end %>
-        </h5>
+            &nbsp;(<%= @result["rating"] %>)
+          </h5>
+        <% end %>
+        <div id="average">
+          <%= render 'average', reviews: @reviews %>
+        </div>
       </div>
-
     </div>
+
     <div class="col-xs-12 col-sm-6 info">
       <h4>Review</h4>
       <p>Please, review for <%= @result["name"] %></p>
