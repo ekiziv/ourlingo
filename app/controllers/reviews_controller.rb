@@ -25,9 +25,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @reviews = Review.where(place_id: @place_id).find_each
     @review = Review.new(review_params)
     @place_id = @review.place_id
+    @reviews = Review.where(place_id: @place_id).find_each
     @review.user = current_user
     if @review.save
       respond_to do |format|
