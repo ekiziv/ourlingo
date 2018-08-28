@@ -6,11 +6,12 @@ class ReviewsController < ApplicationController
     query = params[:input_address]
 
     @places = lookup(@user_lat, @user_lng, query)
-
     @markers = @places.map do |place|
       {
+        card_id: "card_#{place['place_id']}",
         lat: place.geometry['location']['lat'],
-        lng: place.geometry['location']['lng']
+        lng: place.geometry['location']['lng'],
+        icon: ActionController::Base.helpers.asset_path('marker.png')
       }
     end
   end

@@ -1,7 +1,15 @@
+<!-- <script>
+  for (i = 0; i < data.length; i++) {
+    var markers = new google.maps.Marker({
+      position: new google.maps.LatLng(data[i].lat, data[i].lng),
+      map: map
+    });
+    google.maps.event.addListener(markers, 'click', (function(url){
+      return function(){ location.href = url; };
+    })(data[i].url));
+  }
+</script> -->
+
 <div
-  id="map"
-  style="width: 100%";
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
->
+  id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>">
 </div>

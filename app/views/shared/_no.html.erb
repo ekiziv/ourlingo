@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-body no-text" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url(
+  <div id="card_<%= candidate['place_id'] %>" class="card-body no-text" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url(
     <% if candidate["photos"].present? %>
       <%= "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference=#{candidate["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
     <% else %>

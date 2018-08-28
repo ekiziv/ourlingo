@@ -17,3 +17,24 @@ body {
 .google-review {
   display: inline;
 }
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  float: left;
+}
+.rating > label {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > label.flags.active:before,
+.rating > label.flags.active ~ label.flags:before,
+.rating > label.flags:hover:before,
+.rating > label.flags:hover ~ label.flags:before {
+  content: '';
+  position: absolute;
+}
+input {
+  display: none;
+}

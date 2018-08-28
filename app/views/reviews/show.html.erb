@@ -39,22 +39,20 @@
           <% end %>
         </h5>
       </div>
-
     </div>
+
     <div class="col-xs-12 col-sm-6 info">
       <h4>Review</h4>
-      <p>Please, review for <%= @result["name"] %></p>
       <div id="reviews">
-        <% if @reviews.blank? %>
-        <% else %>
-          <% @reviews.each do |review| %>
-            <% @review = review %>
-            <%= render partial: 'review', locals: { review: @review } %>
-          <% end %>
+        <% @reviews.each do |review| %>
+          <% @review = review %>
+          <%= render partial: 'review', locals: { review: @review } %>
         <% end %>
       </div>
 
+      <p>Please, review for <%= @result["name"] %></p>
       <% @review = Review.new(place_id: @place_id) %>
+        <%= render 'rating'%>
       <%= render 'form', review: @review %>
 
     </div>

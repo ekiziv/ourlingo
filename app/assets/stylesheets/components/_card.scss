@@ -16,7 +16,13 @@ body{
   margin: 10px 0;
   box-shadow: 0 0 2px gray;
   transition: all 0.3s ease;
+
+  &.highlighted {
+    filter: brightness(1.75);
+  }
 }
+
+
 
 .card-body {
   background-size: cover;
