@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< HEAD
   <div class="wrapper">
     <div class="row">
       <div class="col-xs-12 col-sm-6 info">
@@ -15,7 +16,12 @@
               <i class="far fa-star"></i>
             <% end %>
             &nbsp;(<%= @rating %>)
-          </h5>
+          <% else %>
+            <% 5.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          <% end %>
+        </h5>
           <div id="average">
             <%= render 'average', reviews: @reviews %>
           </div>
