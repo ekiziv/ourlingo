@@ -1,5 +1,6 @@
-        <h5 class="language-review" id="average">
+        <h5 class="language-review">
           Language review:&nbsp;
+          <% reviews = Review.where(place_id: @place_id).find_each %>
           <% average = reviews.pluck(:english_rating).sum / reviews.count.to_f %>
           <% if reviews.pluck(:english_rating).present? %>
             <% average.round.times do %>
