@@ -11,36 +11,24 @@
       <p><%= @result["formatted_address"] %></p>
       <h5><%= @result["formatted_phone_number"] %></h5>
       <div class="reviews">
-        <h5 class="google-review">
-          Google review:&nbsp;
-          <% @result["rating"].round.times do %>
-            <i class="fas fa-star"></i>
-          <% end %>
-          <% (5-@result["rating"].round).times do %>
-            <i class="far fa-star"></i>
-          <% end %>
-
-          &nbsp;(<%= @result["rating"] %>)
-        </h5>
-
-        <h5 class="language-review">
-          Language review:&nbsp;
-          <% if @result["reviews"].present? %>
-            <% Review.average(:english_rating).round.times do %>
-              <i class="fas fa-flag"></i>
+        <% if @result["rating"] != nil %>
+          <h5 class="google-review">
+            Google review:&nbsp;
+            <% @result["rating"].round.times do %>
+              <i class="fas fa-star"></i>
             <% end %>
-            <% (5-Review.average(:english_rating).round).times do %>
-              <i class="far fa-flag"></i>
+            <% (5-@result["rating"].round).times do %>
+              <i class="far fa-star"></i>
             <% end %>
-          <% else %>
-            <% 5.times do %>
-              <i class="far fa-flag"></i>
-            <% end %>
-          <% end %>
-        </h5>
+            &nbsp;(<%= @result["rating"] %>)
+          </h5>
+        <% end %>
+        <div id="average">
+          <%= render 'average', reviews: @reviews %>
+        </div>
       </div>
-
     </div>
+
     <div class="col-xs-12 col-sm-6 info">
       <h4>Review</h4>
       <p>Please, review for <%= @result["name"] %></p>
