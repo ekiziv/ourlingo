@@ -6,6 +6,10 @@ function refreshForm(innerHTML) {
 function addReview(reviewHTML) {
   const reviews = document.getElementById('reviews');
   reviews.insertAdjacentHTML('beforeend', reviewHTML);
+  const average = document.getElementById('average');
+  const average_partial = '<%= j render "average", reviews: @reviews %>'
+  average.insertAdjacentHTML('beforeend', average_partial);
+  average.firstElementChild.remove();
 }
 
 <% if @review.errors.any? %>
