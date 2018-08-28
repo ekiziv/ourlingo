@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @user_lng = params[:search_lng]
     query = params[:input_address]
 
-    @places = lookup(@user_lat, @user_lng, query)
+    @places = sort_places(lookup(@user_lat, @user_lng, query))
 
     @markers = @places.map do |place|
       {
@@ -76,7 +76,7 @@ class ReviewsController < ApplicationController
     @places = places["results"].map do |place|
       OpenStruct.new(place)
     end
-    return sort_places(@places)
+    return @places
   end
 
 end
