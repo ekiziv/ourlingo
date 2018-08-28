@@ -1,51 +1,44 @@
 <div class="container">
-  <% if @result["photos"][0].present? %>
-    <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=760&photoreference=#{@result["photos"][0]["photo_reference"]}&key=#{ENV['GOOGLE_API_SERVER_KEY']}", class:"half-banner" %>
-  <% else %>
-    <%= "https://picsum.photos/800/600/?random" %>
-  <% end %>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 info">
-      <h4><%= @result["name"] %></h4>
-      <p><%= @result["formatted_address"] %></p>
-      <h5><%= @result["formatted_phone_number"] %></h5>
-      <div class="reviews">
-        <% if @result["rating"] != nil %>
+  <div class="wrapper">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 info">
+        <h4><%= @name %></h4>
+        <p><i class="fas fa-map-pin"></i>  <%= @formatted_address %></p>
+        <p><%= @formatted_phone_number %></p>
+        <div class="reviews">
           <h5 class="google-review">
             Google review:&nbsp;
-            <% @result["rating"].round.times do %>
+            <% @rating.round.times do %>
               <i class="fas fa-star"></i>
             <% end %>
-            <% (5-@result["rating"].round).times do %>
+            <% (5-@rating.round).times do %>
               <i class="far fa-star"></i>
             <% end %>
-            &nbsp;(<%= @result["rating"] %>)
+            &nbsp;(<%= @rating %>)
           </h5>
-        <% end %>
-        <div id="average">
-          <%= render 'average', reviews: @reviews %>
+          <div id="average">
+            <%= render 'average', reviews: @reviews %>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-xs-12 col-sm-6 info">
-      <h4>Review</h4>
-      <p>Please, review for <%= @result["name"] %></p>
-      <div id="reviews">
-        <% if @reviews.blank? %>
-        <% else %>
-          <% @reviews.each do |review| %>
-            <% @review = review %>
-            <%= render partial: 'review', locals: { review: @review } %>
+      <div class="col-xs-12 col-sm-6 info">
+        <h4>Review</h4>
+        <p>Please, review for <%= @name %></p>
+        <div id="reviews">
+          <% unless @reviews.blank? %>
+            <% @reviews.each do |review| %>
+              <% @review = review %>
+              <%= render partial: 'review', locals: { review: @review } %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+        <% @review = Review.new(place_id: @place_id) %>
+        <%= render 'form', review: @review %>
       </div>
-
-      <% @review = Review.new(place_id: @place_id) %>
-      <%= render 'form', review: @review %>
-
     </div>
   </div>
+
+
 </div>
 
