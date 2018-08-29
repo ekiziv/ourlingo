@@ -5,7 +5,8 @@ class ReviewsController < ApplicationController
     @user_lng = params[:search_lng]
     query = params[:input_address]
 
-    @places = lookup(@user_lat, @user_lng, query)
+    @places = sort_places(lookup(@user_lat, @user_lng, query))
+
     @markers = @places.map do |place|
       {
         card_id: "card_#{place['place_id']}",
@@ -23,12 +24,12 @@ class ReviewsController < ApplicationController
     @result = place_info["result"]
 
     @reviews = Review.where(place_id: @place_id).find_each
-    @reviews.pluck(:english_rating) # sum / count
   end
 
   def create
     @review = Review.new(review_params)
     @place_id = @review.place_id
+    @reviews = Review.where(place_id: @place_id).find_each
     @review.user = current_user
     if @review.save
       respond_to do |format|
@@ -51,6 +52,23 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:content, :place_id, :english_rating)
   end
+
+  def sort_places(places)
+    reviewed = []
+    non_reviewed = []
+    places.each do |place|
+      review = Review.find_by(place_id: place.place_id)
+      if review.nil?
+        non_reviewed << place
+      else
+        reviewed << place
+      end
+    end
+    reviewed = reviewed.sort_by! { |reviewed_place| Review.find_by(place_id: reviewed_place.place_id).english_rating }
+    return reviewed.reverse! + non_reviewed
+  end
+
+
 
   def lookup(user_lat, user_lng, query)
     formatted_query = URI.encode(query)

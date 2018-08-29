@@ -23,19 +23,19 @@
     padding: 8px 40px;
   }
 }
-#input_address {
+#input_address{
   display: inline;
   width: fit-content;
   vertical-align: middle;
-  height: 60px;
-  width: 45%;
+  height: 40px;
 }
 
 #search_button {
   display: inline;
   width: fit-content;
   vertical-align: middle;
-  height: 60px;
+  padding-bottom: 5px;
+  height: 38px;
 }
 
 @media screen and (max-width: 600px) {
