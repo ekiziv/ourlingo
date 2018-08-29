@@ -96,3 +96,17 @@
   margin: 0;
 }
 
+@media screen and (max-width: 600px) {
+  .search {
+    display: none;
+  }
+  .navbar-button {
+    display: none;
+  }
+  .navbar-wagon-right {
+    justify-content: flex-end;
+  }
+  .navbar-wagon-dropdown-menu:before {
+  right: 10px;
+}
+}
