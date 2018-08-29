@@ -5,7 +5,14 @@
         <div class="modal-header">
           <div class="r-card-header">
             <h5 class="modal-title"><%= review.user.username %></h5>
-            <h5 class="modal-title"><%= review.english_rating %></h5>
+            <h5 class="modal-title">
+              <% review.english_rating.times do %>
+                <%= image_tag "flag_colored", height: "20px" %>
+              <% end %>
+              <% (5-review.english_rating).times do %>
+                <%= image_tag "flag", height: "20px" %>
+              <% end %>
+            </h5>
           </div>
           <h5 class="modal-title"><%= review.created_at %></h5>
         </div>

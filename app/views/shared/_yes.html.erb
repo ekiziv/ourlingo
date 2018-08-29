@@ -6,10 +6,10 @@
   <% @average = reviews.pluck(:english_rating).sum / reviews.count %>
   <div class="review-stars">
     <% @average.round.times do %>
-      <i class="fas fa-flag"></i>
+      <%= image_tag "flag_colored", height: "20px" %>
     <% end %>
     <% (5-@average.round).times do %>
-      <i class="far fa-flag"></i>
+      <%= image_tag "flag", height: "20px" %>
     <% end %>
   </div>
 </div>
