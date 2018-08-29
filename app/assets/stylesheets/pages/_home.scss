@@ -1,6 +1,6 @@
 #fluid-container {
-  height: calc(100vh - 70px);
-  padding: 100px 0;
+  min-height: calc(100vh - 70px);
+  background-color: $tertiary-gray;
 }
 
 .field {
@@ -16,14 +16,7 @@
 }
 
 .field-logo {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
+
 }
 
 .field-img {
@@ -31,12 +24,27 @@
 }
 
 .review {
+  width: 360px;
   height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
 
 h4 {
   color: $primary-black;
+  margin: 40px 0;
+  padding: 0;
 }
 
+.how-it-works {
+  color: $primary-black;
+  padding-top: 60px;
+  margin-top: 0;
+}
 
+.button-container {
+  text-align:center;
+}
 

@@ -9,7 +9,6 @@ function ipLookUp () {
   $.ajax('http://ip-api.com/json')
   .then(
       function success(response) {
-        console.log("I am using ip-api");
         storeLatAndLong(response.lat, response.lon);
       },
 
@@ -21,16 +20,13 @@ function ipLookUp () {
 
 const form_element = document.getElementById("search_place");
 if (form_element != null) {
-  console.log("hello");
   form_element.addEventListener("submit", (event) => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         function success(position) {
-          console.log("I am using geolocation");
           storeLatAndLong(position.coords.latitude, position.coords.longitude);
         },
         function error(error_message) {
-          console.error('An error has occured while retrieving location', error_message);
           ipLookUp()
         }
         );

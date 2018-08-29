@@ -1,9 +1,9 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon" id="top">
   <div class="search navbar-wagon-item">
     <%= form_tag("/reviews", method: "get", id: "search_place") do %>
       <div class="form-row form-inline navbar-searchbox">
-        <%= text_field_tag :input_address,
-            params[:input_address],
+        <%= text_field_tag :input_addr,
+            params[:input_addr],
             class: "form-control",
             placeholder: "Search for a service"%>
         <%= hidden_field_tag :search_lat, '-22.9866074' %>
@@ -19,7 +19,7 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right">
     <div class="navbar-button">
-      <a href="#fluid-container" id="top"> <h5>How It Works </h5></a>
+      <a href="#fluid-container" id="top"> <h6>How It Works </h6></a>
     </div>
     <% if user_signed_in? %>
       <!-- Avatar with dropdown menu -->

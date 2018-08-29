@@ -16,6 +16,9 @@ body{
   margin: 10px 0;
   box-shadow: 0 0 2px $primary-black;
   transition: all 0.3s ease;
+  &.highlighted {
+    background-color: $primary-yellow;
+  }
 }
 
 .card-body {
@@ -23,7 +26,6 @@ body{
   background-repeat: no-repeat;
   height: 180px;
   position: relative;
-
 }
 
 .card-tag {
@@ -33,7 +35,6 @@ body{
 }
 
 .card-footer {
-  background-color: white;
   margin: 0px;
   color: $primary-black;
   font-size: 13px;
@@ -58,7 +59,7 @@ body{
 }
 
 
-.card-address, .card-reviews  {
+.card-address, .card-reviews, .review-stars  {
   // visibility: hidden;
   color: $primary-gray;
   // text-align: center;
