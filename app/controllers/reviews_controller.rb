@@ -19,9 +19,14 @@ class ReviewsController < ApplicationController
 
   def show
     @place_id = params[:id]
-    url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{@place_id}&fields=formatted_address,name,photos,rating,formatted_phone_number&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{@place_id}&fields=formatted_address,name,rating,formatted_phone_number,opening_hours&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     place_info = HTTParty.get(url)
-    @result = place_info["result"]
+    result = place_info["result"]
+    @name = result["name"].nil? ? "No name" : result["name"]
+    @formatted_address = result["formatted_address"].nil? ? "No address specified" : result["formatted_address"]
+    @formatted_phone_number = result["formatted_phone_number"].nil? ? "No phone specified" : result["formatted_phone_number"]
+    @rating = result["rating"].nil? ? 0 : result["rating"]
+    @openning_hours = result["openning_hours"].nil? ? "Opening hours are not specified" : result["opening_hours"]
 
     @reviews = Review.where(place_id: @place_id).find_each
   end

@@ -1,23 +1,20 @@
 .footer {
-  background: #F4F4F4;
+  background: $secondary-gray;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 70px;
   padding: 0px 50px;
-  color: #EEEEEE;
-  .fa-heart {
-    color: red;
-  }
+  color: $primary-gray;
 }
 .footer-links {
   flex: 0 0;
   display: flex;
   align-items: center;
   a {
+    color: $primary-black;
     flex: 0 0;
-    color: red;
-    opacity: 0.15;
+    opacity: 0.5;
     text-decoration: none;
     font-size: 24px;
     padding: 0px 10px;
@@ -25,10 +22,6 @@
       opacity: 1;
     }
   }
-}
-
-.footer-copyright {
-  color: #DDDDDD
 }
 
 .stick-footer {

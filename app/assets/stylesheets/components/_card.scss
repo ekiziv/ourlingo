@@ -6,7 +6,7 @@ body{
   display: flex;
   align-items: bottom;
   justify-content: space-around;
-    text-align: center;
+  text-align: center;
 }
 
 .card-padding{
@@ -14,7 +14,7 @@ body{
 }
 .card {
   margin: 10px 0;
-  box-shadow: 0 0 2px gray;
+  box-shadow: 0 0 2px $primary-black;
   transition: all 0.3s ease;
 
   &.highlighted {
@@ -30,7 +30,6 @@ body{
   height: 180px;
   position: relative;
 
-
 }
 
 .card-tag {
@@ -42,13 +41,14 @@ body{
 .card-footer {
   background-color: white;
   margin: 0px;
-  color: gray;
+  color: $primary-black;
   font-size: 13px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
+  vertical-align: middle;
   padding: 0 10px;
-  height: 50px;
+  height: 40px;
   h5 {
     margin:10px 0 0 0;
   }
@@ -64,22 +64,22 @@ body{
 }
 
 
-.card-address {
-  visibility: hidden;
-}
-
-.card:hover > .card-body {
-  height: 150px;
+.card-address, .card-reviews  {
+  // visibility: hidden;
+  color: $primary-gray;
+  // text-align: center;
+  padding-left: 10px;
 }
 
 .card:hover > .card-footer {
-  height: 80px;
+  vertical-align: top;
 }
 
-.card:hover .card-address {
-  visibility: visible;
-  text-align: center;
-}
+// .card:hover .card-address,
+// .card:hover .card-reviews {
+  // visibility: visible;
+  // text-align: center;
+// }
 
 a, a:hover {
   text-decoration: none !important;
