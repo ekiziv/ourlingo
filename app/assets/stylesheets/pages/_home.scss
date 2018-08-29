@@ -15,14 +15,7 @@
 }
 
 .field-logo {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
+
 }
 
 .field-img {
@@ -31,11 +24,15 @@
 
 .review {
   height: 300px;
+  vertical-align: middle;
 }
 
 h4 {
   color: $primary-black;
 }
 
+h3 {
+  color: $primary-black;
+}
 
 
