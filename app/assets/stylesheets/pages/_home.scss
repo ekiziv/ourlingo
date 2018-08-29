@@ -1,6 +1,7 @@
-.icon-container {
+#fluid-container {
+  height: calc(100vh - 70px);
+  padding: 100px 0;
 }
-
 .field {
   text-align: center;
 }
@@ -31,4 +32,10 @@
 .review {
   height: 300px;
 }
+
+h4 {
+  color: $primary-black;
+}
+
+
 
