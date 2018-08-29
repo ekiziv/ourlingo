@@ -1,13 +1,14 @@
 .flex-box {
   display: flex;
+  justify-content: space-between;
 }
 
 .results {
-  flex: 0 0 20%;
+  flex: 0 0 29%;
 }
 
 .index-map {
-  flex: 0 0 80%;
+  flex: 0 0 70%;
 }
 
 
@@ -25,6 +26,7 @@
 }
 
 #map {
+  margin-top: 9px;
   height: 100vh;
   position: sticky !important;
   top: 0 !important;

@@ -58,7 +58,7 @@ body{
 }
 
 
-.card-address {
+.card-address, .card-reviews  {
   visibility: hidden;
 }
 
@@ -70,10 +70,13 @@ body{
   height: 80px;
 }
 
-.card:hover .card-address {
+.card:hover .card-address,
+.card:hover .card-reviews {
   visibility: visible;
   text-align: center;
 }
+
+
 
 a, a:hover {
   text-decoration: none !important;
