@@ -1,0 +1,35 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+  $('.flags').click(function() {
+    $('.flags').removeClass('active');
+    $(this).addClass('active');
+  });
+});
+</script>
+
+<form>
+  <div class="rating">
+    <label>
+      <%= image_tag "flag", class: "flags", id: "5" %>
+      <input type="radio" name="starValue" value="5" onclick="javascript:document.getElementById('review_english_rating').value= '5'" />
+    </label>
+    <label>
+      <%= image_tag "flag", class: "flags", id: "4" %>
+      <input type="radio" name="starValue" value="4" onclick="javascript:document.getElementById('review_english_rating').value= '4'"/>
+    </label>
+    <label>
+      <%= image_tag "flag", class: "flags", id: "3" %>
+      <input type="radio" name="starValue" value="3" onclick="javascript:document.getElementById('review_english_rating').value= '3'" />
+    </label>
+    <label>
+      <%= image_tag "flag", class: "flags", id: "2" %>
+      <input type="radio" name="starValue" value="2" onclick="javascript:document.getElementById('review_english_rating').value= '2'" />
+    </label>
+    <label>
+      <%= image_tag "flag", class: "flags", id: "1" %>
+      <input type="radio" name="starValue" value="1" onclick="javascript:document.getElementById('review_english_rating').value= '1'"/>
+    </label>
+  </div>
+</form>
