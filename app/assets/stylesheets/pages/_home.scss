@@ -1,6 +1,6 @@
 #fluid-container {
   min-height: calc(100vh - 70px);
-  padding: 100px 0;
+  background-color: $tertiary-gray;
 }
 
 .field {
@@ -34,11 +34,14 @@
 
 h4 {
   color: $primary-black;
-  padding: 40px 0;
+  margin: 40px 0;
+  padding: 0;
 }
 
-h3 {
+.how-it-works {
   color: $primary-black;
+  padding-top: 60px;
+  margin-top: 0;
 }
 
 .button-container {
