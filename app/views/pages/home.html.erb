@@ -1,30 +1,29 @@
-<div class="banner">
-  <div class="container">
-    <div class="banner-content text-center">
-      <h1>lingo services</h1>
-      <p>find services in your native language</p>
-      <%= form_tag("/reviews", method: "get", id: "search_place") do %>
-        <div class="form-row form-inline">
-          <%= text_field_tag :input_address,
-            params[:input_address],
-            class: "form-control text-center",
-            placeholder: "What service are you looking for today?" %>
-          <%= hidden_field_tag :search_lat, '-22.9866074' %>
-          <%= hidden_field_tag :search_lng, '-43.2173538'%>
-          <%= submit_tag "find", class: "btn btn-primary", id: "search_button" %>
-        </div>
-      <% end %>
+<div class="home-wrapper">
+  <div class="banner">
+    <div class="container">
+      <div class="banner-content text-center">
+        <h2>find services in english</h2>
+        <%= form_tag("/reviews", method: "get", id: "search_place") do %>
+          <div class="form-row form-inline">
+            <%= text_field_tag :input_address,
+              params[:input_address],
+              class: "form-control text-center",
+              placeholder: "What service are you looking for today?" %>
+            <%= hidden_field_tag :search_lat, '-22.9866074' %>
+            <%= hidden_field_tag :search_lng, '-43.2173538'%>
+            <%= submit_tag "find", class: "btn btn-primary", id: "search_button" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div>
-  <div class="fluid-container">
+  <div id="fluid-container">
     <div class="container icon-container">
       <div class="row">
         <div class="col-md-4">
           <div class="review">
             <div class="field field-header">
-              <h3>Search for a service...</h3>
+              <h4>Search for a service</h4>
             </div>
             <div class="field field-content">
               <p>Find an English speaking service to take the worry out of your next hair appointment or massage, or whatever you are searching for today!</p>
@@ -37,7 +36,7 @@
         <div class="col-md-4">
           <div class="review">
             <div class="field field-header">
-              <h3>Identify with your language...</h3>
+              <h4>Identify with your language</h4>
             </div>
             <div class="field field-content">
               <p>With our community providing constant updates, establishments are being reviewed for their English language skills.  Research your service provider.</p>
@@ -50,7 +49,7 @@
         <div class="col-md-4">
           <div class="review">
             <div class="field field-header">
-              <h3>Leave a review...</h3>
+              <h4>Leave a review</h4>
             </div>
             <div class="field field-content">
               <p>Contribute to the lingo services community by leaving your own review and score your experience on the level of English spoken.</p>
@@ -62,5 +61,6 @@
         </div>
       </div>
     </div>
+    <a href="#banner" id="bottom">Click to scroll up</a>
   </div>
 </div>
