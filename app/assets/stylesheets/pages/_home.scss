@@ -1,5 +1,5 @@
 #fluid-container {
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
   padding: 100px 0;
 }
 .field {
@@ -23,19 +23,27 @@
 }
 
 .review {
+  width: 360px;
   height: 300px;
-  vertical-align: middle;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 h4 {
   color: $primary-black;
+  padding: 40px 0;
 }
 
 h3 {
   color: $primary-black;
 }
 
+.button-container {
+  text-align:center;
+}
+#top {
+  width: 110px;
+}
 
