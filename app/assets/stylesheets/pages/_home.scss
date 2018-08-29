@@ -25,6 +25,9 @@
 .review {
   height: 300px;
   vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h4 {
