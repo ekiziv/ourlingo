@@ -20,7 +20,7 @@ if (mapElement) {
         const card = document.getElementById(marker.card_id);
         console.log(card);
         card.classList.add('highlighted');
-        setTimeout(() => {card.classList.remove('highlighted')}, 1000);
+        setTimeout(() => {card.classList.remove('highlighted')}, 500);
         window.smoothScrollTo(card)
       }
     )
