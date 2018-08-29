@@ -1,29 +1,30 @@
 <div class="container">
   <div class="wrapper">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 info">
-        <h4><%= @name %></h4>
-        <p><%= @formatted_address %></p>
-        <h5><%= @formatted_phone_number %></h5>
-        <div class="reviews">
-          <h5 class="google-review">
-            Google review:&nbsp;
-            <% @rating.round.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-            <% (5-@rating.round).times do %>
-              <i class="far fa-star"></i>
-            <% end %>
-            &nbsp;(<%= @rating %>)
-          </h5>
-          <div id="average">
-            <%= render 'average', reviews: @reviews %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="info">
+          <h4 class="show-header"><%= @name %></h4>
+          <p class="show-address"><%= @formatted_address %></p>
+          <p class="show-paragraph phone-number"> <i class="fas fa-mobile-alt"></i>&nbsp&nbsp <%= @formatted_phone_number %></p>
+          <div class="reviews">
+            <p class="google-review">
+              <i class="fab fa-google"></i> &nbsp
+              <% @rating.round.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5-@rating.round).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            </p>
+            <div id="average">
+              <%= render 'average', reviews: @reviews %>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 info">
-        <h4>Review</h4>
-        <p>Please, review for <%= @name %></p>
+        <h4 class="show-header">Leave a Review</h4>
+        <p class="show-subheader">Tell us what you think about <%= @name %></p>
         <div id="reviews">
           <% unless @reviews.blank? %>
             <% @reviews.each do |review| %>
@@ -36,8 +37,6 @@
         <%= render 'form', review: @review %>
       </div>
     </div>
-  </div>
-
-
-</div>
+  </div> <!-- close wrapper -->
+</div> <!-- close container -->
 

@@ -12,7 +12,7 @@ body {
 }
 
 .info {
-  padding: 20px 40px;
+  padding: 20px;
 }
 
 .google-review {
@@ -21,4 +21,54 @@ body {
 
 .flags:hover{
   opacity: 0.6;
+}
+
+.in-this-location {
+  margin: 0 auto;
+}
+
+.show-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.show-subheader {
+  text-align: center;
+}
+
+.show-address {
+  padding-bottom: 0 5px 5px 5px;
+}
+
+.show-paragraph {
+  margin: 0;
+}
+
+.language-review {
+  margin: 0;
+  text-align: center;
+}
+
+.reviews {
+ text-align: center;
+}
+
+.phone-number {
+ text-align: center;
+}
+
+.fa-comment, .fa-google, .fa-mobile-alt {
+  color: $primary-black;
+}
+
+.fa-mobile-alt {
+  padding-left: 1px;
+}
+
+.fa-star {
+  color: $primary-yellow;
+}
+
+.btn-space {
+  margin-top: 10px;
 }
