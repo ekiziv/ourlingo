@@ -1,6 +1,7 @@
 function refreshForm(innerHTML) {
   const newReviewForm = document.getElementById('new_review');
   newReviewForm.innerHTML = innerHTML;
+  window.ratingRefresh();
 }
 
 function addReview(reviewHTML) {
@@ -19,4 +20,3 @@ function addReview(reviewHTML) {
   <% @review = Review.new(place_id: @place_id) %>
   refreshForm('<%= j render "form", review: @review %>');
 <% end %>
-

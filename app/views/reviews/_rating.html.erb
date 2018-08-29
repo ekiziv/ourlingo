@@ -2,34 +2,49 @@
 
 <script>
   $(document).ready(function() {
-  $('.flags').click(function() {
-    $('.flags').removeClass('active');
-    $(this).addClass('active');
+    window.ratingRefresh = () => {
+      const normal_flag = '<%= asset_url('flag') %>';
+      const colored_flag = '<%= asset_url('flag_colored') %>';
+      let englishRating = $('input[name="review[english_rating]"]:checked', '#new_review').val() || 0;
+
+      const updateFlags = value => {
+        $('.flags').attr('src', normal_flag);
+        $('.flags').slice(0, value).attr('src', colored_flag);
+      }
+
+      updateFlags(englishRating)
+
+      $('.flags').click(function() {
+        const input = $(this).parent().find('input')
+        englishRating = input[0].value
+
+        updateFlags(englishRating);
+      });
+    };
+
+    window.ratingRefresh();
   });
-});
 </script>
 
-<form>
-  <div class="rating">
-    <label>
-      <%= image_tag "flag", class: "flags", id: "5" %>
-      <input type="radio" name="starValue" value="5" onclick="javascript:document.getElementById('review_english_rating').value= '5'" />
-    </label>
-    <label>
-      <%= image_tag "flag", class: "flags", id: "4" %>
-      <input type="radio" name="starValue" value="4" onclick="javascript:document.getElementById('review_english_rating').value= '4'"/>
-    </label>
-    <label>
-      <%= image_tag "flag", class: "flags", id: "3" %>
-      <input type="radio" name="starValue" value="3" onclick="javascript:document.getElementById('review_english_rating').value= '3'" />
-    </label>
-    <label>
-      <%= image_tag "flag", class: "flags", id: "2" %>
-      <input type="radio" name="starValue" value="2" onclick="javascript:document.getElementById('review_english_rating').value= '2'" />
-    </label>
-    <label>
-      <%= image_tag "flag", class: "flags", id: "1" %>
-      <input type="radio" name="starValue" value="1" onclick="javascript:document.getElementById('review_english_rating').value= '1'"/>
-    </label>
-  </div>
-</form>
+<div class="rating">
+  <label>
+    <%= image_tag "flag", class: "flags", id: "rating_1" %>
+    <input type="radio" name='<%= name %>' value="1" style='visibility: hidden'/>
+  </label>
+  <label>
+    <%= image_tag "flag", class: "flags", id: "rating_2" %>
+    <input type="radio" name='<%= name %>' value="2" style='visibility: hidden'/>
+  </label>
+  <label>
+    <%= image_tag "flag", class: "flags", id: "rating_3" %>
+    <input type="radio" name='<%= name %>' value="3" style='visibility: hidden'/>
+  </label>
+  <label>
+    <%= image_tag "flag", class: "flags", id: "rating_4" %>
+    <input type="radio" name='<%= name %>' value="4" style='visibility: hidden'/>
+  </label>
+  <label>
+    <%= image_tag "flag", class: "flags", id: "rating_5" %>
+    <input type="radio" name='<%= name %>' value="5" style='visibility: hidden'/>
+  </label>
+</div>
