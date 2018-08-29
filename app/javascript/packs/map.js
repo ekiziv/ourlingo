@@ -18,16 +18,13 @@ if (mapElement) {
     mapMarker.addListener('click',
       () => {
         const card = document.getElementById(marker.card_id);
-        const cardParent = card.parentElement;
         console.log(card);
-        cardParent.classList.add('highlighted');
-        setTimeout(() => {cardParent.classList.remove('highlighted')}, 1000);
-        window.smoothScrollTo(cardParent)
+        card.classList.add('highlighted');
+        setTimeout(() => {card.classList.remove('highlighted')}, 1000);
+        window.smoothScrollTo(card)
       }
     )
   })
-
-
 
   if (markers.length === 0) {
     map.setZoom(2);

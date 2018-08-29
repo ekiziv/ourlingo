@@ -5,3 +5,4 @@ function smoothScrollInit() {
 }
 
 export default smoothScrollInit;
+
