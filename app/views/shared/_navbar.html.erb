@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon" id="top">
   <div class="search navbar-wagon-item">
     <%= form_tag("/reviews", method: "get", id: "search_place") do %>
       <div class="form-row form-inline navbar-searchbox">
@@ -19,7 +19,7 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right">
     <div class="navbar-button">
-      <a href="#fluid-container" id="top"> <h5>How It Works </h5></a>
+      <a href="#fluid-container" id="top"> <h6>How It Works </h6></a>
     </div>
     <% if user_signed_in? %>
       <!-- Avatar with dropdown menu -->
