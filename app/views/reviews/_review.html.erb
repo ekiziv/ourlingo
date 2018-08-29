@@ -6,10 +6,10 @@
   <div>
     <h5 class="lang-review">
       <% review.english_rating.times do %>
-        <i class="fas fa-flag review-icon"></i>
+        <%= image_tag 'flag_colored.svg', class: "review-icon" %>
       <% end %>
       <% (5-review.english_rating).times do %>
-        <i class="far fa-flag review-icon"></i>
+        <%= image_tag 'flag.svg', class: "review-icon" %>
       <% end %>
     </h5>
   </div>
