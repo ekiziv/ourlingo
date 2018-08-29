@@ -2,15 +2,28 @@
 
 <script>
   $(document).ready(function() {
-  $('.flags').click(function() {
-    const normal_flag = '<%= asset_path('flag') %>'
-    const colored_flag = '<%= asset_path('flag_colored') %>'
-    const input = $(this).parent().find('input')
-    const value = input[0].value
-    $('.flags').attr('src', normal_flag);
-    $('.flags').slice(0, value).attr('src', colored_flag);
+    window.ratingRefresh = () => {
+      const normal_flag = '<%= asset_url('flag') %>';
+      const colored_flag = '<%= asset_url('flag_colored') %>';
+      let englishRating = $('input[name="review[english_rating]"]:checked', '#new_review').val() || 0;
+
+      const updateFlags = value => {
+        $('.flags').attr('src', normal_flag);
+        $('.flags').slice(0, value).attr('src', colored_flag);
+      }
+
+      updateFlags(englishRating)
+
+      $('.flags').click(function() {
+        const input = $(this).parent().find('input')
+        englishRating = input[0].value
+
+        updateFlags(englishRating);
+      });
+    };
+
+    window.ratingRefresh();
   });
-});
 </script>
 
 <div class="rating">
