@@ -4,18 +4,14 @@
 // To use a font file (.woff) uncomment following lines
 @font-face {
   font-family: "Proxima Nova";
-  src: font-url('../../fonts/proxima-nova.otf');
+  src: font-url("proxima-nova.otf");
 }
 
 @font-face {
   font-family: "Century Gothic";
-  src: font-url('../../fonts/century-gothic.otf');
+  src: font-url("century-gothic.otf");
 }
 
-$main-font: "Proxima Nova";
-$secondary-font: "Century Gothic";
-
 // Define fonts for body and headers
-$body-font: "Montserrat", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
-$experimentation-font: "Quicksand", "Helvetica", "sans-serif";
+$body-font: "Proxima Nova", "Helvetica", "sans-serif";
+$headers-font: "Century Gothic", "Helvetica", "sans-serif";
