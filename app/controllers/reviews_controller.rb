@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   def index
     @user_lat = params[:search_lat]
     @user_lng = params[:search_lng]
-    query = params[:input_address]
+    query = params[:input_address] || params[:input_addr]
 
     @places = sort_places(lookup(@user_lat, @user_lng, query))
 

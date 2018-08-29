@@ -18,7 +18,6 @@ if (mapElement) {
     mapMarker.addListener('click',
       () => {
         const card = document.getElementById(marker.card_id);
-        console.log(card);
         card.classList.add('highlighted');
         setTimeout(() => {card.classList.remove('highlighted')}, 2000);
         window.smoothScrollTo(card)
