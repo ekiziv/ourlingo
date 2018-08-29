@@ -19,24 +19,6 @@ body {
   display: inline;
 }
 
-.rating {
-  label {
-    display: inline-block;
-    position: relative;
-    width: 1.1em;
-    &:active, &:checked {
-      background-color: red;
-    }
-  }
+.flags:hover{
+  opacity: 0.6;
 }
-
-// .rating > label.flags.active:before,
-// .rating > label.flags.active ~ label.flags:before,
-// .rating > label.flags:hover:before,
-// .rating > label.flags:hover ~ label.flags:before {
-//   content: '';
-//   position: absolute;
-// }
-// input {
-//   display: none;
-// }

@@ -3,31 +3,35 @@
 <script>
   $(document).ready(function() {
   $('.flags').click(function() {
-    $('.flags').removeClass('active');
-    $(this).addClass('active');
+    const normal_flag = '<%= asset_path('flag') %>'
+    const colored_flag = '<%= asset_path('flag_colored') %>'
+    const input = $(this).parent().find('input')
+    const value = input[0].value
+    $('.flags').attr('src', normal_flag);
+    $('.flags').slice(0, value).attr('src', colored_flag);
   });
 });
 </script>
 
 <div class="rating">
   <label>
-    <%= image_tag "flag", class: "flags", id: "1" %>
-    <input type="radio" name='<%= name %>' value="1"/>
+    <%= image_tag "flag", class: "flags", id: "rating_1" %>
+    <input type="radio" name='<%= name %>' value="1" style='visibility: hidden'/>
   </label>
   <label>
-    <%= image_tag "flag", class: "flags", id: "2" %>
-    <input type="radio" name='<%= name %>' value="2"/>
+    <%= image_tag "flag", class: "flags", id: "rating_2" %>
+    <input type="radio" name='<%= name %>' value="2" style='visibility: hidden'/>
   </label>
   <label>
-    <%= image_tag "flag", class: "flags", id: "3" %>
-    <input type="radio" name='<%= name %>' value="3"/>
+    <%= image_tag "flag", class: "flags", id: "rating_3" %>
+    <input type="radio" name='<%= name %>' value="3" style='visibility: hidden'/>
   </label>
   <label>
-    <%= image_tag "flag", class: "flags", id: "4" %>
-    <input type="radio" name='<%= name %>' value="4"/>
+    <%= image_tag "flag", class: "flags", id: "rating_4" %>
+    <input type="radio" name='<%= name %>' value="4" style='visibility: hidden'/>
   </label>
   <label>
-    <%= image_tag "flag_colored", class: "flags", id: "5" %>
-    <input type="radio" name='<%= name %>' value="5"/>
+    <%= image_tag "flag", class: "flags", id: "rating_5" %>
+    <input type="radio" name='<%= name %>' value="5" style='visibility: hidden'/>
   </label>
 </div>
