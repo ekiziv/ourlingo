@@ -9,27 +9,25 @@
 });
 </script>
 
-<form>
-  <div class="rating">
-    <label>
-      <%= image_tag "flag", class: "flags", id: "5" %>
-      <input type="radio" name="starValue" value="5" onclick="javascript:document.getElementById('review_english_rating').value= '5'" />
-    </label>
-    <label>
-      <%= image_tag "flag", class: "flags", id: "4" %>
-      <input type="radio" name="starValue" value="4" onclick="javascript:document.getElementById('review_english_rating').value= '4'"/>
-    </label>
-    <label>
-      <%= image_tag "flag", class: "flags", id: "3" %>
-      <input type="radio" name="starValue" value="3" onclick="javascript:document.getElementById('review_english_rating').value= '3'" />
-    </label>
-    <label>
-      <%= image_tag "flag", class: "flags", id: "2" %>
-      <input type="radio" name="starValue" value="2" onclick="javascript:document.getElementById('review_english_rating').value= '2'" />
-    </label>
-    <label>
-      <%= image_tag "flag", class: "flags", id: "1" %>
-      <input type="radio" name="starValue" value="1" onclick="javascript:document.getElementById('review_english_rating').value= '1'"/>
-    </label>
-  </div>
-</form>
+<div class="rating">
+  <label>
+    <%= image_tag "flag", class: "flags", id: "1" %>
+    <input type="radio" name='<%= name %>' value="1"/>
+  </label>
+  <label>
+    <%= image_tag "flag", class: "flags", id: "2" %>
+    <input type="radio" name='<%= name %>' value="2"/>
+  </label>
+  <label>
+    <%= image_tag "flag", class: "flags", id: "3" %>
+    <input type="radio" name='<%= name %>' value="3"/>
+  </label>
+  <label>
+    <%= image_tag "flag", class: "flags", id: "4" %>
+    <input type="radio" name='<%= name %>' value="4"/>
+  </label>
+  <label>
+    <%= image_tag "flag_colored", class: "flags", id: "5" %>
+    <input type="radio" name='<%= name %>' value="5"/>
+  </label>
+</div>
