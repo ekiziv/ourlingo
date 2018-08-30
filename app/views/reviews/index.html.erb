@@ -1,4 +1,4 @@
-<div class="flex-box small-padding">
+<div class="flex-box">
   <div class="results">
     <% @places.each do |candidate| %>
       <% reviews = Review.where(place_id: candidate['place_id']) %>
