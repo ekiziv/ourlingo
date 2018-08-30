@@ -92,3 +92,18 @@ body {
   top: 5px;
   left: 0;
 }
+#myDIV {
+  transition: opacity 0.5s;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+
+  &.shown {
+    height: auto;
+    opacity: 1;
+  }
+}
+
+
+
