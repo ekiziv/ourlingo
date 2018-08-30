@@ -80,6 +80,9 @@ body {
 
 .rating-label {
   position: relative;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 2rem;
 }
 
 .flags {
@@ -119,3 +122,4 @@ body {
   color: $primary-gray;
   opacity: 0.8;
 }
+

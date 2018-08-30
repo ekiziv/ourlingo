@@ -11,6 +11,7 @@ function addReview(reviewHTML) {
   const average_partial = '<%= j render "average", reviews: @reviews %>'
   average.insertAdjacentHTML('beforeend', average_partial);
   average.firstElementChild.remove();
+  document.getElementById('exampleModalCenter').click()
 }
 
 <% if @review.errors.any? %>

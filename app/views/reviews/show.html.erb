@@ -12,10 +12,6 @@
             </div>
           </div>
         </div>
-        <h4 class="show-header">Leave a Review</h4>
-        <p class="show-subheader">Tell us what you think about <%= @name %></p>
-        <% @review = Review.new(place_id: @place_id) %>
-        <%= render 'form', review: @review %>
       </div>
     </div>
 
@@ -38,6 +34,25 @@
       <% if @reviews.count > 3 %>
         <h5 class="text-center"><a id="show-more">Show more</a></h5>
       <% end %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Launch demo modal
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="exampleModalLongTitle">Leave a Review</h5>
+            </div>
+            <div class="modal-body">
+              <% @review = Review.new(place_id: @place_id) %>
+              <%= render 'form', review: @review %>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="row">
       <h4 class="show-header text-center">Details</h4>
