@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
 
   def show
     @place_id = params[:id]
-    url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{@place_id}&fields=formatted_address,name,rating,formatted_phone_number,opening_hours&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{@place_id}&fields=geometry,formatted_address,name,rating,formatted_phone_number,opening_hours&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     place_info = HTTParty.get(url)
     result = place_info["result"]
     @name = result["name"].nil? ? "No name" : result["name"]
@@ -29,6 +29,11 @@ class ReviewsController < ApplicationController
     @openning_hours = result["openning_hours"].nil? ? "Opening hours are not specified" : result["opening_hours"]
 
     @reviews = Review.where(place_id: @place_id).find_each
+    @markers = [{
+      lat: result['geometry']['location']['lat'],
+      lng: result['geometry']['location']['lng'],
+      icon: ActionController::Base.helpers.asset_path('marker.png'),
+    }]
   end
 
   def create
