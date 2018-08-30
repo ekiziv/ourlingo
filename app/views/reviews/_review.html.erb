@@ -1,8 +1,13 @@
 <div class="col-xs-12 col-md-4">
   <div data-review-id="<%= review.id %>" class="r-card">
     <div class="r-card-header">
-      <div><h6><%= review.user.username.downcase.truncate(10) %></h6></div>
-      <div class="review-font"><h6><%= review.created_at.strftime("%m/%d/%Y") %></h6></div>
+      <div>
+        <h6><%= review.user.username.downcase.truncate(10) %></h6>
+      </div>
+      <div class="review-font">
+       <h6><%= "#{distance_of_time_in_words(review.created_at, Time.now)} ago" %></h6>
+
+      </div>
     </div>
     <div>
       <h5 class="lang-review">
