@@ -13,8 +13,10 @@ body{
   padding: 10px 5px 0 10px;
 }
 .card {
-  margin: 10px 0;
-  box-shadow: 0 0 2px $primary-black;
+  margin: 0;
+  // box-shadow: 0 0 2px $primary-black;
+  padding: 2rem 0.5rem;
+  border-bottom: 1px solid #eee;
   transition: all 0.3s ease;
   &.highlighted {
     background-color: $primary-yellow;
@@ -84,6 +86,10 @@ a, a:hover {
   background-color: #FCFCFC;
   opacity: 0.7;
 }
+
+// .review-cards {
+//   margin: 0px;
+// }
 
 .no-text{
   color: white;
