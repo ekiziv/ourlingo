@@ -1,7 +1,8 @@
 <div data-review-id="<%= review.id %>" class="r-card">
   <div class="r-card-header">
-    <div><%= review.user.username %></div>
-    <div class="review-font"><%= review.created_at.strftime("%m/%d/%Y") %></div>
+
+    <div><h6><%= review.user.username.downcase.truncate(10) %></h6></div>
+    <div class="review-font"><h6><%= review.created_at.strftime("%m/%d/%Y") %></h6></div>
   </div>
   <div>
     <h5 class="lang-review">
@@ -13,11 +14,11 @@
       <% end %>
     </h5>
   </div>
-  <div>
-    <p class="review-font"><%= review.content.truncate(80) %></p>
+  <div class="review-content">
+    <p><%= review.content.truncate(80) %></p>
   </div>
   <div class="details">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target='<%= "#review-modal-#{review.id}"%>'> See details </button>
+    <a data-target='<%= "#review-modal-#{review.id}"%>' data-toggle="modal">See details</a>
   </div>
 
   <%= render 'modal', review: review %>

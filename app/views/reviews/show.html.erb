@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="row">
-      <h4> English Reviews</h4>
+      <h4 class="text-center"> English Reviews</h4>
       <div id="reviews">
         <div class="row">
           <% @reviews.first(3).each do |review| %>
@@ -40,6 +40,7 @@
               <%= render 'review', review: review %>
             </div>
           <% end %>
+
         </div>
       </div>
     </div>
