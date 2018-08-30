@@ -3,8 +3,8 @@
 <script>
   $(document).ready(function() {
     window.ratingRefresh = () => {
-      const normal_flag = '<%= asset_url('flag') %>';
-      const colored_flag = '<%= asset_url('flag_colored') %>';
+      const normal_flag = '<%= asset_url('flag.svg') %>';
+      const colored_flag = '<%= asset_url('flag_colored.svg') %>';
       let englishRating = $('input[name="review[english_rating]"]:checked', '#new_review').val() || 0;
 
       const updateFlags = value => {
