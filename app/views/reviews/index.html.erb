@@ -1,19 +1,31 @@
 <div class="flex-box small-padding">
-  <div class="results">
-    <% @places.each do |candidate| %>
-    <% reviews = Review.where(place_id: candidate['place_id']) %>
-    <div>
-      <%= link_to review_path(candidate["place_id"]) do %>
-        <% if reviews.present?  %>
-          <%= render "shared/yes", candidate: candidate, reviews: reviews %>
-        <% else  %>
-          <%= render "shared/no", candidate: candidate %>
-        <% end %>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-  <div class="index-map padding-right-none">
-    <%= render "shared/map" %>
-  </div>
+  <!-- Create a wrapper div -->
+  <!-- Add a row -->
+  <!-- Add <div class="col-xs-12 col-md-4"> -->
+  <!-- Add a flex-direction style to the results class -->
+  <!-- <div class="index-wrapper"> -->
+    <!-- <div class="row"> -->
+      <!-- <div class="col-xs-12 col-md-4"> -->
+        <div class="results">
+          <% @places.each do |candidate| %>
+            <% reviews = Review.where(place_id: candidate['place_id']) %>
+            <div class="review-cards">
+              <%= link_to review_path(candidate["place_id"]) do %>
+                <% if reviews.present?  %>
+                  <%= render "shared/yes", candidate: candidate, reviews: reviews %>
+                <% else  %>
+                  <%= render "shared/no", candidate: candidate %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <!-- </div> -->
+      <!-- <div class="col-xs-12 col-md-8"> -->
+        <div class="index-map padding-right-none">
+          <%= render "shared/map" %>
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
 </div>
