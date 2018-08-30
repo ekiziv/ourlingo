@@ -18,6 +18,8 @@
   padding-bottom: 15px;
   position: center;
   font-family: "Raleway";
+  // display: flex;
+  // justify-content: center;
 }
 
 /* Right section */
@@ -30,7 +32,7 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 5px;
+  padding: 0 5px 0 20px;
   position: relative;
   display: flex;
   align-items: center;
