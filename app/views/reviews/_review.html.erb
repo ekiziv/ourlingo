@@ -15,7 +15,11 @@
       </h5>
     </div>
     <div class="review-content">
-      <p>"<%= review.content.truncate(80) %>"</p>
+      <% if review.content != "" %>
+        <p>"<%= review.content.truncate(80) %>"</p>
+        <% else %>
+        <p class="nil-content">This reviewer only submitted a rating</p>
+      <% end %>
     </div>
     <div class="details">
       <a data-target='<%= "#review-modal-#{review.id}"%>' data-toggle="modal">See details</a>
