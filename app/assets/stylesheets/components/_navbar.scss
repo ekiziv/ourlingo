@@ -26,7 +26,8 @@
 .navbar-wagon-right {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  width: 22em;
 }
 
 /* Basic navbar item */
@@ -44,6 +45,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  width: 22em;
 }
 
 /* Navbar link */
