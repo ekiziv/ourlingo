@@ -7,7 +7,6 @@ body {
 }
 
 .wrapper {
-  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -17,7 +16,7 @@ body {
 }
 
 .google-review {
-  display: inline;
+  text-align: center;
 }
 
 .flags:hover{
@@ -31,6 +30,7 @@ body {
 .show-header {
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 80px;
 }
 
 .show-subheader {
@@ -46,7 +46,7 @@ body {
 }
 
 .language-review {
-  margin: 0;
+  margin: 10px 0;
   text-align: center;
 }
 
@@ -58,7 +58,7 @@ body {
  text-align: center;
 }
 
-.fa-comment, .fa-google, .fa-mobile-alt {
+.fa-comment, .fa-mobile-alt {
   color: $primary-black;
 }
 
@@ -66,8 +66,8 @@ body {
   padding-left: 1px;
 }
 
-.fa-star {
-  color: $primary-yellow;
+.fa-star .fa-google {
+  color: $secondary-gray;
 }
 
 .btn-space {
@@ -109,4 +109,13 @@ body {
 
 #show-more {
   cursor: pointer;
+}
+
+.new_review {
+  text-align: center;
+}
+
+.nil-content {
+  color: $primary-gray;
+  opacity: 0.8;
 }

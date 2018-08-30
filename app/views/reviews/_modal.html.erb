@@ -7,10 +7,10 @@
             <h5 class="modal-title"><%= review.user.username %></h5>
             <h5 class="lang-review">
               <% review.english_rating.times do %>
-                <%= image_tag 'flag_colored.svg', class: "review-icon" %>
+                <%= image_tag 'flag_colored.svg', class: "review-icon-sml" %>
               <% end %>
               <% (5-review.english_rating).times do %>
-                <%= image_tag 'flag.svg', class: "review-icon" %>
+                <%= image_tag 'flag.svg', class: "review-icon-sml" %>
               <% end %>
             </h5>
           </div>
