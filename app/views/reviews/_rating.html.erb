@@ -27,24 +27,25 @@
 </script>
 
 <div class="rating">
-  <label>
+  <p class="show-subheader top-margin">Rate their english</p>
+  <label class="rating-label">
+    <input class="invisible-radio" type="radio" name='<%= name %>' value="1" style='visibility: hidden'/>
     <%= image_tag "flag", class: "flags", id: "rating_1" %>
-    <input type="radio" name='<%= name %>' value="1" style='visibility: hidden'/>
   </label>
-  <label>
+  <label class="rating-label">
+    <input class="invisible-radio" type="radio" name='<%= name %>' value="2" style='visibility: hidden'/>
     <%= image_tag "flag", class: "flags", id: "rating_2" %>
-    <input type="radio" name='<%= name %>' value="2" style='visibility: hidden'/>
   </label>
-  <label>
+  <label class="rating-label">
+    <input class="invisible-radio" type="radio" name='<%= name %>' value="3" style='visibility: hidden'/>
     <%= image_tag "flag", class: "flags", id: "rating_3" %>
-    <input type="radio" name='<%= name %>' value="3" style='visibility: hidden'/>
   </label>
-  <label>
+  <label class="rating-label">
+    <input class="invisible-radio" type="radio" name='<%= name %>' value="4" style='visibility: hidden'/>
     <%= image_tag "flag", class: "flags", id: "rating_4" %>
-    <input type="radio" name='<%= name %>' value="4" style='visibility: hidden'/>
   </label>
-  <label>
+  <label class="rating-label">
+    <input class="invisible-radio" type="radio" name='<%= name %>' value="5" style='visibility: hidden'/>
     <%= image_tag "flag", class: "flags", id: "rating_5" %>
-    <input type="radio" name='<%= name %>' value="5" style='visibility: hidden'/>
   </label>
 </div>

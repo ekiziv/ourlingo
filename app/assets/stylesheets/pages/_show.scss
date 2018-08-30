@@ -12,7 +12,9 @@ body {
 }
 
 .info {
-  padding: 20px;
+  // padding: 10px;
+  margin: 0;
+  text-align: center;
 }
 
 .google-review {
@@ -71,4 +73,22 @@ body {
 
 .btn-space {
   margin-top: 10px;
+}
+
+.top-margin {
+  margin-top: 15px;
+}
+
+.show-subheader {
+  margin-bottom: 0px;
+}
+
+.rating-label {
+  position: relative;
+}
+
+.flags {
+  position: absolute;
+  top: 5px;
+  left: 0;
 }
