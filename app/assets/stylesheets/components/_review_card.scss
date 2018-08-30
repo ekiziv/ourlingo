@@ -22,13 +22,13 @@
   display: block;
   $font-size: 14px;
   font-style: italic;
-  $lines-to-show: 3;
+  $lines-to-show: 2;
   height: $font-size*$line-height*$lines-to-show;
   font-size: $font-size;
   line-height: $line-height;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 20px 0;
+  margin: 10px 0;
   text-align: center;
   p {
     font-size: 14px;
@@ -63,4 +63,9 @@
 
 .review-icon {
   max-width: 100%;
+}
+
+.flags-small {
+  max-width: 160px;
+  margin-top: 15px;
 }
