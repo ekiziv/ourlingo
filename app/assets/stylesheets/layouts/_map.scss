@@ -26,8 +26,16 @@
 }
 
 #map {
+
+}
+
+.map-index {
   margin-top: 9px;
+  top: 0 !important;
   height: 100vh;
   position: sticky !important;
-  top: 0 !important;
+}
+
+.map-show {
+  height: 50vh !important;
 }
