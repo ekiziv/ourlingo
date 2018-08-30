@@ -1,16 +1,16 @@
 <div class="flex-box small-padding">
   <div class="results">
     <% @places.each do |candidate| %>
-    <% reviews = Review.where(place_id: candidate['place_id']) %>
-    <div>
-      <%= link_to review_path(candidate["place_id"]) do %>
-        <% if reviews.present?  %>
-          <%= render "shared/yes", candidate: candidate, reviews: reviews %>
-        <% else  %>
-          <%= render "shared/no", candidate: candidate %>
+      <% reviews = Review.where(place_id: candidate['place_id']) %>
+      <div class="review-cards">
+        <%= link_to review_path(candidate["place_id"]) do %>
+          <% if reviews.present?  %>
+            <%= render "shared/yes", candidate: candidate, reviews: reviews %>
+          <% else  %>
+            <%= render "shared/no", candidate: candidate %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
     <% end %>
   </div>
   <div class="index-map padding-right-none">
