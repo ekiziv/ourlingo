@@ -25,14 +25,23 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 350px;
 }
 
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
+  padding: 0 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-wagon-item2 {
+  cursor: pointer;
   padding: 0 20px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 /* Navbar link */
@@ -120,3 +129,4 @@
   right: 10px;
   }
 }
+
