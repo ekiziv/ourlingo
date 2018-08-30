@@ -1,8 +1,7 @@
 <%= form_for @review, remote: true do |f| %>
-  <p>Add a reveiw of their language</p>
   <%= f.hidden_field :place_id, input_html: { :value => @place_id } %>
+  <%= f.text_area :content, class: "form-control" %>
   <%= render 'rating', name: "review[english_rating]" %>
-  <%= f.text_field :content, class: "form-control" %>
-  <%= f.submit "add a review", class: "btn btn-primary" %>
+  <%= f.submit "add a review", class: "btn btn-primary btn-sm" %>
 <% end %>
 
