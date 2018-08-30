@@ -4,26 +4,57 @@
   background-color: $tertiary-gray;
   color: $primary-black;
   margin: 10px 0;
-  padding: 20px;
-  height: 200px;
+  padding: 30px;
+
 }
 
 .r-card-header {
   display: flex;
   justify-content: space-between;
+  h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: lighter;
+  }
 }
 
-.review-font {
-  font-size: 14px;
+.review-content {
+  display: block;
+  max-width: 400px;
+  $font-size: 14px;
+  font-style: italic;
+  $lines-to-show: 3;
+  height: $font-size*$line-height*$lines-to-show;
+  font-size: $font-size;
+  line-height: $line-height;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 10px 0;
+  p {
+    font-size: 14px;
+  }
 }
 
 .review-icon {
-  font-size:14px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  width: 20px;
+  height: 20px;
 }
 
 .lang-review {
   text-align: left;
   margin: 0;
+  padding: 5px 0;
+  font-style: italic;
+}
+
+.details  {
+  text-align: center;
+  a {
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 16px;
+  }
+}
+
+#reviews {
 }

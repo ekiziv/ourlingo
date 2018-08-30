@@ -3,8 +3,8 @@
 <script>
   $(document).ready(function() {
     window.ratingRefresh = () => {
-      const normal_flag = '<%= asset_url('flag') %>';
-      const colored_flag = '<%= asset_url('flag_colored') %>';
+      const normal_flag = '<%= asset_url('flag.svg') %>';
+      const colored_flag = '<%= asset_url('flag_colored.svg') %>';
       let englishRating = $('input[name="review[english_rating]"]:checked', '#new_review').val() || 0;
 
       const updateFlags = value => {
@@ -30,22 +30,22 @@
   <p class="show-subheader top-margin">Rate their english</p>
   <label class="rating-label">
     <input class="invisible-radio" type="radio" name='<%= name %>' value="1" style='visibility: hidden'/>
-    <%= image_tag "flag", class: "flags", id: "rating_1" %>
+    <%= image_tag "flag.svg", class: "flags", id: "rating_1" %>
   </label>
   <label class="rating-label">
     <input class="invisible-radio" type="radio" name='<%= name %>' value="2" style='visibility: hidden'/>
-    <%= image_tag "flag", class: "flags", id: "rating_2" %>
+    <%= image_tag "flag.svg", class: "flags", id: "rating_2" %>
   </label>
   <label class="rating-label">
     <input class="invisible-radio" type="radio" name='<%= name %>' value="3" style='visibility: hidden'/>
-    <%= image_tag "flag", class: "flags", id: "rating_3" %>
+    <%= image_tag "flag.svg", class: "flags", id: "rating_3" %>
   </label>
   <label class="rating-label">
     <input class="invisible-radio" type="radio" name='<%= name %>' value="4" style='visibility: hidden'/>
-    <%= image_tag "flag", class: "flags", id: "rating_4" %>
+    <%= image_tag "flag.svg", class: "flags", id: "rating_4" %>
   </label>
   <label class="rating-label">
     <input class="invisible-radio" type="radio" name='<%= name %>' value="5" style='visibility: hidden'/>
-    <%= image_tag "flag", class: "flags", id: "rating_5" %>
+    <%= image_tag "flag.svg", class: "flags", id: "rating_5" %>
   </label>
 </div>
