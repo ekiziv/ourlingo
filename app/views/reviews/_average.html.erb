@@ -1,5 +1,4 @@
 <p class="language-review">
-  <i class="fas fa-comment"></i> &nbsp
   <% average = reviews.pluck(:english_rating).sum / reviews.count.to_f %>
   <% if reviews.pluck(:english_rating).present? %>
     <% average.round.times do %>

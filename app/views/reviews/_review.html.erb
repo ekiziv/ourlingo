@@ -7,15 +7,15 @@
     <div>
       <h5 class="lang-review">
         <% review.english_rating.times do %>
-          <%= image_tag 'flag_colored.svg', class: "review-icon" %>
+          <%= image_tag 'flag_colored.svg', class: "review-icon-sml" %>
         <% end %>
         <% (5-review.english_rating).times do %>
-          <%= image_tag 'flag.svg', class: "review-icon" %>
+          <%= image_tag 'flag.svg', class: "review-icon-sml" %>
         <% end %>
       </h5>
     </div>
     <div class="review-content">
-      <p><%= review.content.truncate(80) %></p>
+      <p>"<%= review.content.truncate(80) %>"</p>
     </div>
     <div class="details">
       <a data-target='<%= "#review-modal-#{review.id}"%>' data-toggle="modal">See details</a>
