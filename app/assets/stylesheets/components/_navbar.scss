@@ -18,21 +18,34 @@
   padding-bottom: 15px;
   position: center;
   font-family: "Raleway";
+  // display: flex;
+  // justify-content: center;
 }
 
 /* Right section */
 .navbar-wagon-right {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 350px;
+  justify-content: flex-end;
+  width: 22em;
 }
 
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
+  padding: 0 5px 0 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-wagon-item2 {
+  cursor: pointer;
   padding: 0 20px;
   position: relative;
+  display: flex;
+  align-items: center;
+  width: 22em;
 }
 
 /* Navbar link */
@@ -120,3 +133,4 @@
   right: 10px;
   }
 }
+
