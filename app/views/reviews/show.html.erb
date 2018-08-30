@@ -32,15 +32,21 @@
       </div>
     </div>
     <div class="row">
-      <h4> English Reviews</h4>
+      <h4 class="text-center"> English Reviews</h4>
       <div id="reviews">
-        <div class="row">
+        <div class="row" id="row-container">
           <% @reviews.first(3).each do |review| %>
-            <div class="col-xs-12 col-md-4">
               <%= render 'review', review: review %>
-            </div>
           <% end %>
         </div>
+        <div class="row">
+          <div id="myDIV">
+            <% @reviews.drop(3).each do |review| %>
+              <%= render 'review', review: review %>
+          <% end %>
+          </div>
+        </div>
+        <h5 class="text-center"><a id="show-more">Show more</a></h5>
       </div>
     </div>
     <div class="row">
