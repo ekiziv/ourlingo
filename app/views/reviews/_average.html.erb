@@ -3,14 +3,14 @@
   <% average = reviews.pluck(:english_rating).sum / reviews.count.to_f %>
   <% if reviews.pluck(:english_rating).present? %>
     <% average.round.times do %>
-      <i class="fas fa-star"></i>
+      <%= image_tag 'flag_colored.svg', class: "review-icon" %>
     <% end %>
     <% (5-average.round).times do %>
-      <i class="far fa-star"></i>
+      <%= image_tag 'flag_colored.svg', class: "review-icon" %>
     <% end %>
   <% else %>
     <% 5.times do %>
-      <i class="far fa-star"></i>
+      <%= image_tag 'flag_colored.svg', class: "review-icon" %>
     <% end %>
   <% end %>
 </p>
