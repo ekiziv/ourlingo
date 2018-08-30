@@ -44,7 +44,7 @@
       </div>
     </div>
     <div class="row">
-      <%= render "shared/map" %>
+      <div id="map" class="map-show" data-markers="<%= @markers.to_json %>"></div>
     </div>
   </div> <!-- close wrapper -->
 </div> <!-- close container -->
