@@ -12,7 +12,6 @@ body {
 }
 
 .info {
-  // padding: 10px;
   margin: 0;
   text-align: center;
 }
@@ -75,10 +74,6 @@ body {
   margin-top: 10px;
 }
 
-.top-margin {
-  margin-top: 15px;
-}
-
 .show-subheader {
   margin-bottom: 0px;
 }
@@ -92,18 +87,26 @@ body {
   top: 5px;
   left: 0;
 }
+
 #myDIV {
   transition: opacity 0.5s;
   height: 0;
   opacity: 0;
   overflow: hidden;
-
-
   &.shown {
     height: auto;
     opacity: 1;
   }
 }
 
+.margin-bottom-zero {
+  margin-bottom: 0px;
+}
 
+.top-margin {
+  margin-top: 15px;
+}
 
+#show-more {
+  cursor: pointer;
+}

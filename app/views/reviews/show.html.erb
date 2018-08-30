@@ -32,7 +32,9 @@
       </div>
     </div>
     <div class="row">
-      <h4 class="text-center"> English Reviews</h4>
+      <% unless @reviews.count == 0 %>
+        <h4 class="text-center">English Reviews</h4>
+      <% end %>
       <div id="reviews">
         <div class="row" id="row-container">
           <% @reviews.first(3).each do |review| %>
@@ -46,10 +48,14 @@
           <% end %>
           </div>
         </div>
-        <h5 class="text-center"><a id="show-more">Show more</a></h5>
+        <% if @reviews.count > 3 %>
+          <h5 class="text-center"><a id="show-more">Show more</a></h5>
+        <% end %>
       </div>
     </div>
     <div class="row">
+      <h4 class="show-header text-center">Address</h4>
+      <p class="show-subheader"><%= @formatted_address %></p>
       <div id="map" class="map-show" data-markers="<%= @markers.to_json %>"></div>
     </div>
   </div> <!-- close wrapper -->
