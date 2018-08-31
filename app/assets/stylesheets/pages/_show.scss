@@ -29,11 +29,24 @@ body {
   margin: 0 auto;
 }
 
+.main-show-header {
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+
 .show-header {
   text-align: center;
   margin-bottom: 20px;
-  margin-top: 80px;
+  margin-top: 70px;
 }
+
+.final-show-header {
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 20px;
+}
+
 
 .show-subheader {
   text-align: center;
@@ -51,10 +64,6 @@ body {
 .language-review {
   // margin: 10px 0;
   text-align: center;
-}
-
-.reviews {
-
 }
 
 .phone-number {
@@ -84,6 +93,9 @@ body {
 
 .rating-label {
   position: relative;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 2rem;
 }
 
 .flags {
@@ -122,4 +134,25 @@ body {
 .nil-content {
   color: $primary-gray;
   opacity: 0.8;
+}
+
+.margin-top {
+  margin-top: 25px;
+}
+
+.modal-dialog-centered {
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-align:center;
+  -ms-flex-align:center;
+  align-items:center;
+  min-height:calc(100% - (.5rem * 2));
+  width:100%;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog-centered {
+    min-height:calc(100% - (1.75rem * 2));
+  }
 }

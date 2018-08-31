@@ -5,17 +5,31 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="info">
-          <h2 class="show-header"><%= @name %></h2>
+          <h2 class="main-show-header"><%= @name %></h2>
           <div class="reviews">
             <div id="average">
               <%= render 'average', reviews: @reviews %>
             </div>
           </div>
         </div>
-        <h4 class="show-header">Leave a Review</h4>
-        <p class="show-subheader">Tell us what you think about <%= @name %></p>
-        <% @review = Review.new(place_id: @place_id) %>
-        <%= render 'form', review: @review %>
+        <div class="text-center margin-top margin-bottom-zero">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Add a review
+          </button>
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-center" id="exampleModalLongTitle">Leave a Review</h5>
+                </div>
+                <div class="modal-body">
+                  <% @review = Review.new(place_id: @place_id) %>
+                  <%= render 'form', review: @review %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -40,7 +54,7 @@
       <% end %>
     </div>
     <div class="row">
-      <h4 class="show-header text-center">Details</h4>
+      <h4 class="final-show-header text-center">Details</h4>
       <p class="google-review show-subheader">
         <i class="fab fa-google"></i> &nbsp
         <% @rating.round.times do %>
