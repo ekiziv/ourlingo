@@ -22,28 +22,28 @@
   display: block;
   $font-size: 14px;
   font-style: italic;
-  $lines-to-show: 3;
+  $lines-to-show: 2;
   height: $font-size*$line-height*$lines-to-show;
   font-size: $font-size;
   line-height: $line-height;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 20px 0;
+  margin: 10px 0;
   text-align: center;
   p {
     font-size: 14px;
   }
 }
 
-.review-icon {
-  width: 110px;
-  height: 66px;
+
+.language-review {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 7px;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
-.review-icon-sml {
-  width: 50px;
-  height: 30px;
-}
 
 .lang-review {
   text-align: center;
@@ -59,4 +59,13 @@
     font-weight: bolder;
     font-size: 16px;
   }
+}
+
+.review-icon {
+  max-width: 100%;
+}
+
+.flags-small {
+  max-width: 160px;
+  margin-top: 15px;
 }

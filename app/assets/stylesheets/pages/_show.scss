@@ -4,6 +4,8 @@ body {
 } p {
   font-size: 15px;
   font-family: "Century Gothic" !important;
+} h2 {
+  color: $primary-black;
 }
 
 .wrapper {
@@ -46,12 +48,12 @@ body {
 }
 
 .language-review {
-  margin: 10px 0;
+  // margin: 10px 0;
   text-align: center;
 }
 
 .reviews {
- text-align: center;
+
 }
 
 .phone-number {

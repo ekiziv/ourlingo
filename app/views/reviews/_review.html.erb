@@ -9,12 +9,12 @@
       </div>
     </div>
     <div>
-      <h5 class="lang-review">
+      <h5 class="language-review flags-small">
         <% review.english_rating.times do %>
-          <%= image_tag 'flag_colored.svg', class: "review-icon-sml" %>
+          <%= image_tag 'flag_colored.svg', class: "review-icon" %>
         <% end %>
         <% (5-review.english_rating).times do %>
-          <%= image_tag 'flag.svg', class: "review-icon-sml" %>
+          <%= image_tag 'flag.svg', class: "review-icon" %>
         <% end %>
       </h5>
     </div>
