@@ -1,5 +1,8 @@
 require 'uri'
 class ReviewsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
+
   def index
     @user_lat = params[:search_lat]
     @user_lng = params[:search_lng]
