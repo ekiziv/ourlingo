@@ -3,11 +3,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: radial-gradient(rgba(252,252,252,0.85), rgba(255,255,255,0.35)), image-url("background1.jpg");
+  background-image: radial-gradient(rgba(252,252,252,0.25), rgba(255,255,255,0.05)), image-url("background1.jpg");
   background-size: cover;
   background-position: center;
   h2 {
-    color: $primary-black;
+    color: $light-gray;
   }
 }
 

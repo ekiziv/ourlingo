@@ -1,5 +1,5 @@
-meta_product_name: "Lingo"
-meta_title: "Lingo - Find services in English, anywhere in the World"
-meta_description: "Lingo enables users to find local services provided in English.  No more worrying about whether your holiday hairdresser will understand how you want your style, no more worrying whether your masseuse will understand what pressure you prefer."
+meta_product_name: "Polyglot"
+meta_title: "Polyglot - Find services in English"
+meta_description: "Polyglot helps you find services that speak your language."
 meta_image: "meta_image.jpg"                       # should exist in `app/assets/images/`
-twitter_account: "@lingo_services"   # required for Twitter Cards
+twitter_account: "@polyglot"   # required for Twitter Cards
